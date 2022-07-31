@@ -946,6 +946,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
 var _mainViewJsx = require("./components/main-view/main-view.jsx");
+var _mainViewJsxDefault = parcelHelpers.interopDefault(_mainViewJsx);
 var _container = require("react-bootstrap/Container");
 var _containerDefault = parcelHelpers.interopDefault(_container);
 // importing store
@@ -973,7 +974,7 @@ class MyFlixApplication extends _reactDefault.default.Component {
                     lineNumber: 22
                 },
                 __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_mainViewJsx.MainView, {
+                children: /*#__PURE__*/ _jsxRuntime.jsx(_mainViewJsxDefault.default, {
                     __source: {
                         fileName: "src/index.jsx",
                         lineNumber: 23
@@ -25398,17 +25399,10 @@ class MainView extends _reactDefault.default.Component {
         const user = this.state.user;
         const displayRegisterForm = this.state.displayRegisterForm;
         const token = localStorage.getItem('token');
-        // Log-out button needs to be placed right
-        //<button onClick={() => { this.onLoggedOut() }}>Logout</button>
-        /* if displayRegisterForm is true, the RegisterView is rendered
-    if (displayRegisterForm) return <RegisterView OnLogInClick={() => { this.toLogIn() }} />*/ /* If there is no user, the LoginView is rendered.
-    if (!user) {
-      return <LoginView onLoggedIn={user => this.onLoggedIn(user)} onRegisterClick={() => { this.toRegister() }} />;
-    } */ //if (movies.length === 0) return <div className='main-view'></div>;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 161
+                lineNumber: 148
             },
             __self: this,
             children: [
@@ -25416,7 +25410,7 @@ class MainView extends _reactDefault.default.Component {
                     user: user,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 162
+                        lineNumber: 149
                     },
                     __self: this
                 }),
@@ -25424,7 +25418,7 @@ class MainView extends _reactDefault.default.Component {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 163
+                        lineNumber: 150
                     },
                     __self: this,
                     children: [
@@ -25450,7 +25444,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 165
+                                lineNumber: 152
                             },
                             __self: this
                         }),
@@ -25469,7 +25463,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 176
+                                lineNumber: 163
                             },
                             __self: this
                         }),
@@ -25492,7 +25486,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 182
+                                lineNumber: 169
                             },
                             __self: this
                         }),
@@ -25515,7 +25509,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 194
+                                lineNumber: 181
                             },
                             __self: this
                         }),
@@ -25537,7 +25531,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 206
+                                lineNumber: 193
                             },
                             __self: this
                         }),
@@ -25557,7 +25551,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 217
+                                lineNumber: 204
                             },
                             __self: this
                         })
@@ -25565,26 +25559,11 @@ class MainView extends _reactDefault.default.Component {
                 })
             ]
         }));
-    /*if (selectedMovie) return (
-      <Row className="justify-content-md-center main-view">
-        <Col md={4}>
-          <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-        </Col>
-      </Row>
-    )
-    else {
-      return (
-        <Row className="justify-content-md-center main-view">
-          {movies.map((movie) => ( //When returning jsx, one needs () not {}
-            <Col className="movieCardContainer" md={4} >
-              <MovieCard key={movie._id} movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie); }} />
-            </Col>
-          ))
-          }
-        </Row>
-      );
-    } */ }
+    }
 }
+// it gets state from store and passes it as props to the component that is connected to store
+// we are mapping the state of the store to the main view component
+// movies is prop of component main view
 let mapStateToProps = (state)=>{
     return {
         movies: state.movies

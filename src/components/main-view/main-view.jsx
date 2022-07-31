@@ -144,19 +144,6 @@ class MainView extends React.Component {
     const displayRegisterForm = this.state.displayRegisterForm;
     const token = localStorage.getItem('token');
 
-    // Log-out button needs to be placed right
-    //<button onClick={() => { this.onLoggedOut() }}>Logout</button>
-
-    /* if displayRegisterForm is true, the RegisterView is rendered
-    if (displayRegisterForm) return <RegisterView OnLogInClick={() => { this.toLogIn() }} />*/
-
-    /* If there is no user, the LoginView is rendered.
-    if (!user) {
-      return <LoginView onLoggedIn={user => this.onLoggedIn(user)} onRegisterClick={() => { this.toRegister() }} />;
-    } */
-
-    //if (movies.length === 0) return <div className='main-view'></div>;
-
     return (
       <Router>
         <Menubar user={user}></Menubar>
@@ -224,41 +211,20 @@ class MainView extends React.Component {
             </Col>
 
           }} />
-
-
-
         </Row>
       </Router>
     );
-
-
-
-
-
-    /*if (selectedMovie) return (
-      <Row className="justify-content-md-center main-view">
-        <Col md={4}>
-          <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-        </Col>
-      </Row>
-    )
-    else {
-      return (
-        <Row className="justify-content-md-center main-view">
-          {movies.map((movie) => ( //When returning jsx, one needs () not {}
-            <Col className="movieCardContainer" md={4} >
-              <MovieCard key={movie._id} movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie); }} />
-            </Col>
-          ))
-          }
-        </Row>
-      );
-    } */
   }
 }
 
+// it gets state from store and passes it as props to the component that is connected to store
+// we are mapping the state of the store to the main view component
+// movies is prop of component main view
 let mapStateToProps = state => {
   return { movies: state.movies }
 }
 
+// connect main view to store
+// we need store to map state to props of main
+// setMovies is action creator, it is imported
 export default connect(mapStateToProps, { setMovies })(MainView);
