@@ -5,12 +5,12 @@ export function setMovies(value) {
   return {
     type: SET_MOVIES,
     value
-  }
+  };
 }
 
 export function setFilter(value) {
   return {
     type: SET_FILTER,
     value
-  }
+  };
 }
