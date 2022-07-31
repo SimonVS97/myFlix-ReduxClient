@@ -15,14 +15,17 @@ import { ProfileView } from '../profile-view/profile-view';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import { connect } from 'react-redux';
+import { setMovies } from '../../actions/actions';
+// import MoviesList from '../movies-list/movies-list';
+
 import './main-view.scss';
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      movies: [],
       selectedMovie: null,
       user: null,
       displayRegisterForm: false
@@ -110,10 +113,7 @@ export class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
-        //Assign the result to the state
-        this.setState({
-          movies: response.data
-        });
+        this.props.setMovies(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -138,7 +138,7 @@ export class MainView extends React.Component {
 
 
   render() {
-    const movies = this.state.movies;
+    let movies = this.props.movies;
     const selectedMovie = this.state.selectedMovie;
     const user = this.state.user;
     const displayRegisterForm = this.state.displayRegisterForm;
@@ -170,11 +170,7 @@ export class MainView extends React.Component {
             // Before the movies have been loaded
             if (movies.length === 0) return <div className='main-view'></div>;
             // mapping the movie cards
-            return movies.map(m => (
-              <Col md={4} key={m._id}>
-                <MovieCard movie={m} />
-              </Col>
-            ))
+            return <MoviesList movies={movies} />
           }} />
 
           <Route path="/register" render={() => {
@@ -260,3 +256,9 @@ export class MainView extends React.Component {
     } */
   }
 }
+
+let mapStateToProps = state => {
+  return { movies: state.movies }
+}
+
+export default connect(mapStateToProps, { setMovies })(MainView);
