@@ -17,7 +17,7 @@ import Col from 'react-bootstrap/Col';
 
 import { connect } from 'react-redux';
 import { setMovies } from '../../actions/actions';
-// import MoviesList from '../movies-list/movies-list';
+import MoviesList from '../movies-list/movies-list';
 
 import './main-view.scss';
 
