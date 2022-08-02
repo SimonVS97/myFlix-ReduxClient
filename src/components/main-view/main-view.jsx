@@ -27,7 +27,6 @@ class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      selectedMovie: null,
       displayRegisterForm: false
     }
   }
@@ -54,16 +53,9 @@ class MainView extends React.Component {
         });
     } */
 
-  /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/
-  setSelectedMovie(newSelectedMovie) {
-    this.setState({
-      selectedMovie: newSelectedMovie
-    });
-  }
-
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
   onLoggedIn(authData) {
-    console.log(authData);
+    //console.log(authData);
     this.props.setUser(authData.user.Username);
     /*this.setState({
       user: authData.user.Username
@@ -137,7 +129,7 @@ class MainView extends React.Component {
   render() {
     let movies = this.props.movies;
     const selectedMovie = this.state.selectedMovie;
-    const user = this.state.user;
+    const user = this.props.user;
     const displayRegisterForm = this.state.displayRegisterForm;
     const token = localStorage.getItem('token');
 
@@ -227,4 +219,4 @@ let mapStateToProps = state => {
 // connect main view to store
 // we need store to map state to props of main
 // setMovies is action creator, it is imported
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);

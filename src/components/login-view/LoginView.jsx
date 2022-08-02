@@ -53,6 +53,7 @@ export function LoginView(props) {
         .then(response => {
           // response object, data is the parsed response body
           /* then call props.onLoggedIn(data) */
+          console.log(response.data);
           const data = response.data;
           props.onLoggedIn(data);
         })

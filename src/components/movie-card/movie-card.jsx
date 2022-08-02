@@ -16,9 +16,9 @@ export class MovieCard extends React.Component {
 
   render() {
     const movie = this.props.movie;
+    const user = this.props.user;
     const onMovieClick = this.props.onMovieClick;
     const token = this.props.token;
-    const user = this.props.user;
     const deleteFavMovie = this.props.deleteFavMovie;
     const favMovies = this.props.favMovies;
     console.log(movie._id);
