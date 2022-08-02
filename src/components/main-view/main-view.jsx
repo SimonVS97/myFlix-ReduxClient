@@ -17,6 +17,7 @@ import Col from 'react-bootstrap/Col';
 
 import { connect } from 'react-redux';
 import { setMovies } from '../../actions/actions';
+import { setUser } from '../../actions/actions';
 import MoviesList from '../movies-list/movies-list';
 
 import './main-view.scss';
@@ -27,7 +28,6 @@ class MainView extends React.Component {
     super();
     this.state = {
       selectedMovie: null,
-      user: null,
       displayRegisterForm: false
     }
   }
@@ -64,9 +64,10 @@ class MainView extends React.Component {
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
   onLoggedIn(authData) {
     console.log(authData);
-    this.setState({
+    this.props.setUser(authData.user.Username);
+    /*this.setState({
       user: authData.user.Username
-    });
+    }); */
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
@@ -83,10 +84,6 @@ class MainView extends React.Component {
 
   // method that will add movie to list of favorites
   addToFavorites(user, movieID, token) {
-    console.log(user);
-    console.log(token);
-    console.log(movieID);
-
     fetch(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` }
@@ -221,7 +218,10 @@ class MainView extends React.Component {
 // we are mapping the state of the store to the main view component
 // movies is prop of component main view
 let mapStateToProps = state => {
-  return { movies: state.movies }
+  return {
+    movies: state.movies,
+    user: state.user
+  }
 }
 
 // connect main view to store
