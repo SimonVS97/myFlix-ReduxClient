@@ -87,21 +87,6 @@ class ProfileView extends React.Component {
     return isRegis;
   }
 
-
-
-  // Filter the favorite movies of the user 
-  getUserFavMovies() {
-    const favMovies = this.state.profile.FavoriteMovies;
-    const movies = this.props.movies;
-    console.log(movies);
-    let favMoviesArr = this.state.favMovies;
-
-    favMoviesArr = favMovies.map(movieId => {
-      return movies.find(m => m._id == movieId)
-    })
-    this.setFavMovies(favMoviesArr);
-  }
-
   // put request to server to update user information
   changeUserInfo(user, token) {
     console.log('hello');
@@ -125,6 +110,7 @@ class ProfileView extends React.Component {
       alert('wrong input');
     }
   }
+
   // Get profile info from user after mounting component
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
@@ -144,17 +130,17 @@ class ProfileView extends React.Component {
     })
   }
 
-  // method that sends delete request
-  deleteUser(user, token) {
-    console.log(user);
-    axios.delete(`https://movie-app-svs.herokuapp.com/users/${user}`,
-      { headers: { Authorization: `Bearer ${token}` } }
-    ).then(response => {
-      console.log(response.data);
-      window.open('/', '_self');
-    }).catch(error => {
-      console.error(error);
+  // Filter the favorite movies of the user 
+  getUserFavMovies() {
+    const favMovies = this.state.profile.FavoriteMovies;
+    const movies = this.props.movies;
+    console.log(movies);
+    let favMoviesArr = this.state.favMovies;
+
+    favMoviesArr = favMovies.map(movieId => {
+      return movies.find(m => m._id == movieId)
     })
+    this.setFavMovies(favMoviesArr);
   }
 
   // method that sends delete request to delete movie from favorites
@@ -168,13 +154,25 @@ class ProfileView extends React.Component {
     })
   }
 
+  // method that sends delete request
+  deleteUser(user, token) {
+    console.log(user);
+    axios.delete(`https://movie-app-svs.herokuapp.com/users/${user}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    ).then(response => {
+      console.log(response.data);
+      window.open('/', '_self');
+    }).catch(error => {
+      console.error(error);
+    })
+  }
+
+
   render() {
     const user = this.props.user;
     const token = localStorage.getItem('token');
     const profile = this.state.profile;
     const favMovies = this.state.favMovies;
-
-
 
     console.log('array', favMovies);
 
@@ -226,7 +224,7 @@ class ProfileView extends React.Component {
                     <Button type="submit" variant="primary" onClick={() => this.deleteUser(user, token)}>Deregister</Button>
                     <Button onClick={() => this.getUserFavMovies()}>FavMovies</Button>
                     <Link to={`/`}>
-                      <Button variant="link">back</Button>
+                      <Button variant="primary">back</Button>
                     </Link>
                   </Form>
                 </Card.Body>
@@ -234,6 +232,7 @@ class ProfileView extends React.Component {
             </CardGroup>
           </Col>
         </Row>
+
         {favMovies !== null &&
           favMovies.map(m => (
             <Col md={4}>
