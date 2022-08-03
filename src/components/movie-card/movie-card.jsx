@@ -10,9 +10,7 @@ import './movie-card.scss';
 
 
 export class MovieCard extends React.Component {
-  addToFav() {
 
-  }
 
   render() {
     const movie = this.props.movie;

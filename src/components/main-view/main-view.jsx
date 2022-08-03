@@ -27,7 +27,6 @@ class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      displayRegisterForm: false
     }
   }
 
@@ -108,24 +107,6 @@ class MainView extends React.Component {
         console.log(error);
       });
   }
-
-
-  // a function that will set displayRegisterForm on true
-  toRegister() {
-    console.log('hello');
-    this.setState({
-      displayRegisterForm: true
-    });
-    console.log(this.state.displayRegisterForm);
-  }
-
-  // Function that will set displayRegisterForm to false
-  toLogIn() {
-    this.setState({
-      displayRegisterForm: false
-    })
-  }
-
 
 
   render() {
