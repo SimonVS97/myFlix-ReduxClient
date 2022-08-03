@@ -7,13 +7,14 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
+
 
 export function RegisterView(props) {
   [username, setUsername] = useState('');
   [password, setPassword] = useState('');
   [email, setEmail] = useState('');
   [birthday, setBirthDay] = useState('');
-  const OnLogInClick = props.OnLogInClick;
 
   const [usernameErr, setUsernameErr] = useState('');
   const [passwordErr, setPasswordErr] = useState('');
@@ -128,7 +129,9 @@ export function RegisterView(props) {
                   <br></br>
 
                   <Button type="submit" variant="primary" onClick={() => handleSubmit()}>Submit</Button>
-                  <Button variant="primary" onClick={() => { OnLogInClick(); }}>Log-In</Button>
+                  <Link to={`/`}>
+                    <Button variant='primary'>Log-In</Button>
+                  </Link>
                 </Form>
               </Card.Body>
             </Card>

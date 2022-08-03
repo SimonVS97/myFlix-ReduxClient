@@ -7,6 +7,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -85,7 +86,9 @@ export function LoginView(props) {
                   </Form.Group>
                   <br></br>
                   <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
-                  <Button varaint="primary" onClick={() => { onRegisterClick(); }}>Register</Button>
+                  <Link to={`/register`}>
+                    <Button variant='primary'>Register</Button>
+                  </Link>
                 </Form>
               </Card.Body>
             </Card>
