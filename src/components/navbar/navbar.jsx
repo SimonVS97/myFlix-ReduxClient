@@ -3,8 +3,10 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
+import { connect } from 'react-redux';
 
-export function Menubar(props) {
+
+function Menubar(props) {
 
   const user = props.user;
 
@@ -47,4 +49,13 @@ export function Menubar(props) {
       </Container>
     </Navbar>
   );
-} 
+}
+
+let mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+
+export default connect(mapStateToProps)(Menubar);
