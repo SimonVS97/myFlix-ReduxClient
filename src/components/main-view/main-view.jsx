@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import { LoginView } from '../login-view/LoginView';
+import LoginView from '../login-view/LoginView';
 import { RegisterView } from '../register-view/register-view.jsx';
 import Menubar from '../navbar/navbar.jsx'
 import { DirectorView } from '../director-view/director-view';
@@ -40,6 +40,8 @@ class MainView extends React.Component {
       this.getMovies(accessToken);
     }
   }
+
+
   /*  componentDidMount() {
       axios.get('https://movie-app-svs.herokuapp.com/movies')
         .then(response => {
@@ -53,16 +55,13 @@ class MainView extends React.Component {
     } */
 
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
-  onLoggedIn(authData) {
+  /*onLoggedIn(authData) {
     //console.log(authData.user.Username);
     this.props.setUser(authData.user.Username);
-    /*this.setState({
-      user: authData.user.Username
-    }); */
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
-  }
+  } */
 
   // Logging out function
   onLoggedOut() {
@@ -113,7 +112,6 @@ class MainView extends React.Component {
     let movies = this.props.movies;
     const selectedMovie = this.state.selectedMovie;
     const user = this.props.user;
-    const displayRegisterForm = this.state.displayRegisterForm;
     const token = localStorage.getItem('token');
 
     return (
@@ -124,7 +122,7 @@ class MainView extends React.Component {
           <Route exact path="/" render={() => {
             /* If there is no user, the LoginView is rendered. */
             if (!user) {
-              return <LoginView onLoggedIn={user => this.onLoggedIn(user)} onRegisterClick={() => { this.toRegister() }} />;
+              return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
             }
             // Before the movies have been loaded
             if (movies.length === 0) return <div className='main-view'></div>;
@@ -135,7 +133,7 @@ class MainView extends React.Component {
           <Route path="/register" render={() => {
             // register view
             if (user) return <Redirect to="/" />
-            return <RegisterView OnLogInClick={() => { this.toLogIn() }}></RegisterView>
+            return <RegisterView ></RegisterView>
           }} />
 
           <Route path="/movies/:movieId" render={({ match, history }) => {

@@ -8,10 +8,15 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+
+import { setUser } from '../../actions/actions';
+
 
 import axios from 'axios';
 
-export function LoginView(props) {
+function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   // Declare hook for each input
@@ -56,8 +61,11 @@ export function LoginView(props) {
           // response object, data is the parsed response body
           /* then call props.onLoggedIn(data) */
           console.log(response.data);
-          const data = response.data;
-          props.onLoggedIn(data);
+          props.setUser(response.data.user.Username);
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('user', response.data.user.Username);
+          //const data = response.data;
+          //props.onLoggedIn(data);
         })
         .catch(e => {
           console.log('no such user')
@@ -100,6 +108,9 @@ export function LoginView(props) {
   );
 
 }
+
+export default connect(null, { setUser })(LoginView);
+
 
 LoginView.PropTypes = {
   onRegisterClick: PropTypes.func.isRequired,
