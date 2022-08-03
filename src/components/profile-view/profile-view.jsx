@@ -9,8 +9,10 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { MovieCard } from '../movie-card/movie-card';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export class ProfileView extends React.Component {
+
+class ProfileView extends React.Component {
 
   constructor() {
     super();
@@ -85,21 +87,13 @@ export class ProfileView extends React.Component {
     return isRegis;
   }
 
-  // Get info on the user, user is passed as an parameter into method
-  getUserInfo(user, token) {
-    axios.get(`https://movie-app-svs.herokuapp.com/users/${user}`, {
-      headers: { Authorization: `Bearer ${token}` }
-    }).then(response => {
-      this.setState({
-        profile: response.data
-      })
-    })
-  }
+
 
   // Filter the favorite movies of the user 
   getUserFavMovies() {
     const favMovies = this.state.profile.FavoriteMovies;
     const movies = this.props.movies;
+    console.log(movies);
     let favMoviesArr = this.state.favMovies;
 
     favMoviesArr = favMovies.map(movieId => {
@@ -134,8 +128,20 @@ export class ProfileView extends React.Component {
   // Get profile info from user after mounting component
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
-    let user = this.props.user;
+    let user = localStorage.getItem('user');
     this.getUserInfo(user, accessToken);
+  }
+
+  // Get info on the user, user is passed as an parameter into method
+  getUserInfo(user, token) {
+    console.log(user);
+    axios.get(`https://movie-app-svs.herokuapp.com/users/${user}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    }).then(response => {
+      this.setState({
+        profile: response.data
+      })
+    })
   }
 
   // method that sends delete request
@@ -164,7 +170,6 @@ export class ProfileView extends React.Component {
 
   render() {
     const user = this.props.user;
-    const movies = this.props.movies;
     const token = localStorage.getItem('token');
     const profile = this.state.profile;
     const favMovies = this.state.favMovies;
@@ -172,7 +177,6 @@ export class ProfileView extends React.Component {
 
 
     console.log('array', favMovies);
-    console.log(profile);
 
     return (
       <Container>
@@ -249,3 +253,12 @@ export class ProfileView extends React.Component {
   }
 }
 
+let mapStateToProps = state => {
+  return {
+    movies: state.movies,
+    user: state.user
+  }
+}
+
+
+export default connect(mapStateToProps)(ProfileView);

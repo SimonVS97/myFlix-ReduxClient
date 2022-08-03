@@ -10,7 +10,7 @@ import { RegisterView } from '../register-view/register-view.jsx';
 import Menubar from '../navbar/navbar.jsx'
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
-import { ProfileView } from '../profile-view/profile-view';
+import ProfileView from '../profile-view/profile-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -40,28 +40,6 @@ class MainView extends React.Component {
       this.getMovies(accessToken);
     }
   }
-
-
-  /*  componentDidMount() {
-      axios.get('https://movie-app-svs.herokuapp.com/movies')
-        .then(response => {
-          this.setState({
-            movies: response.data
-          });
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    } */
-
-  /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
-  /*onLoggedIn(authData) {
-    //console.log(authData.user.Username);
-    this.props.setUser(authData.user.Username);
-    localStorage.setItem('token', authData.token);
-    localStorage.setItem('user', authData.user.Username);
-    this.getMovies(authData.token);
-  } */
 
   // Logging out function
   onLoggedOut() {
@@ -175,8 +153,6 @@ class MainView extends React.Component {
             if (movies.length === 0) return <div className="main-view" />;
             return <Col>
               <ProfileView
-                movies={movies}
-                user={user}
                 onBackClick={() => history.goBack()} />
             </Col>
 
