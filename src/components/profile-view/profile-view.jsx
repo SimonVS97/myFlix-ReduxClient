@@ -224,7 +224,7 @@ class ProfileView extends React.Component {
                     <Button type="submit" variant="primary" onClick={() => this.deleteUser(user, token)}>Deregister</Button>
                     <Button onClick={() => this.getUserFavMovies()}>FavMovies</Button>
                     <Link to={`/`}>
-                      <Button variant="primary">back</Button>
+                      <Button variant="primary">Back</Button>
                     </Link>
                   </Form>
                 </Card.Body>
@@ -232,21 +232,22 @@ class ProfileView extends React.Component {
             </CardGroup>
           </Col>
         </Row>
-
-        {favMovies !== null &&
-          favMovies.map(m => (
-            <Col md={4}>
-              <MovieCard
-                favMovies={favMovies}
-                movie={m}
-                token={token}
-                user={user}
-                key={m._id}
-                deleteFavMovie={(user, movieID, token) => this.deleteFavMovie(user, movieID, token)}>
-              </MovieCard>
-            </Col>
-          ))
-        }
+        <Row>
+          {favMovies !== null &&
+            favMovies.map(m => (
+              <Col md={4}>
+                <MovieCard
+                  favMovies={favMovies}
+                  movie={m}
+                  token={token}
+                  user={user}
+                  key={m._id}
+                  deleteFavMovie={(user, movieID, token) => this.deleteFavMovie(user, movieID, token)}>
+                </MovieCard>
+              </Col>
+            ))
+          }
+        </Row>
       </Container>
     )
   }

@@ -46,9 +46,7 @@ class MainView extends React.Component {
   onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    this.setState({
-      user: null
-    });
+    this.props.setUser('');
   }
 
   // method that will add movie to list of favorites
@@ -65,7 +63,7 @@ class MainView extends React.Component {
         console.error('Error:', error);
       });
     /*
-        axios.post(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`,
+        axios.post(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`, {}
           { headers: { Authorization: `Bearer ${token}` } })
           .then(response => {
             console.log(response);
@@ -75,6 +73,7 @@ class MainView extends React.Component {
   }
 
   getMovies(token) {
+    console.log('hello');
     axios.get('https://movie-app-svs.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}` }
     })
@@ -89,8 +88,8 @@ class MainView extends React.Component {
 
   render() {
     let movies = this.props.movies;
-    const selectedMovie = this.state.selectedMovie;
-    const user = this.props.user;
+    const user = localStorage.getItem('user');
+    console.log(user);
     const token = localStorage.getItem('token');
 
     return (
@@ -101,7 +100,7 @@ class MainView extends React.Component {
           <Route exact path="/" render={() => {
             /* If there is no user, the LoginView is rendered. */
             if (!user) {
-              return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+              return <LoginView />;
             }
             // Before the movies have been loaded
             if (movies.length === 0) return <div className='main-view'></div>;

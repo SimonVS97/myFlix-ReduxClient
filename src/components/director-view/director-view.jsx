@@ -32,11 +32,13 @@ export class DirectorView extends React.Component {
                   <Card.Title>{director.Name}</Card.Title>
                   <Card.Text>Born in {director.Birth}</Card.Text>
                   <Card.Text>{director.Bio}</Card.Text>
+                  <Link to={`/`}>
+                    <Button variant="primary">Back</Button>
+                  </Link>
                 </Card.Body>
               </Card>
             </CardGroup>
           </Col>
-
         </Row>
         <Row>
           <Col>
@@ -56,19 +58,9 @@ export class DirectorView extends React.Component {
         </Row>
       </Container >
 
+
     )
 
   }
 
 }
-
-/* 
-                  <Card.Text>{directorMovies[0]}</Card.Text>
-                  <Link to={`/directors/${movie.Director.Name}`}>
-                    <Button variant="link">Director</Button>
-                  </Link>
-                  <Link to={`/genres/${movie.Genre.Name}`}>
-                    <Button variant="link">Genre</Button>
-                  </Link>
-                  <Button variant="primary" type="submit" onClick={() => { onBackClick(); }}>Back</Button>
-                  */

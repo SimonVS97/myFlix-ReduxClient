@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 import { MovieCard } from '../movie-card/movie-card';
 
 export class GenreView extends React.Component {
@@ -23,6 +24,9 @@ export class GenreView extends React.Component {
                 <Card.Body>
                   <Card.Title>{genre.Name}</Card.Title>
                   <Card.Text>{genre.Description}</Card.Text>
+                  <Link to={`/`}>
+                    <Button variant="primary">Back</Button>
+                  </Link>
                 </Card.Body>
               </Card>
             </CardGroup>
