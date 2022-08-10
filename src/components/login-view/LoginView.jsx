@@ -7,7 +7,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 
@@ -64,6 +64,7 @@ function LoginView(props) {
           props.setUser(response.data.user.Username);
           localStorage.setItem('token', response.data.token);
           localStorage.setItem('user', response.data.user.Username);
+          window.open("/", "_self");
           //const data = response.data;
           //props.onLoggedIn(data);
         })

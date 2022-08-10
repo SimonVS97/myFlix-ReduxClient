@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "parcel src/index.html",
+    "start": "parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel src/index.html"
   },
   "repository": {
     "type": "git",
@@ -19,7 +22,6 @@
   "homepage": "https://github.com/SimonVS97/myFlix-client2#readme",
   "dependencies": {
     "axios": "^0.27.2",
-    "parcel": "^2.0.0-rc.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
@@ -28,5 +30,12 @@
     "react-router-dom": "^5.3.0",
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9"
+  },
+  "alias": {
+    "process": false
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.5.0",
+    "parcel": "^2.5.0"
   }
 }
