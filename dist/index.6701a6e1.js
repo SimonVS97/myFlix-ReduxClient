@@ -44115,144 +44115,206 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _toast = require("react-bootstrap/Toast");
+var _toastDefault = parcelHelpers.interopDefault(_toast);
+var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _movieViewScss = require("./movie-view.scss");
 class MovieView extends _reactDefault.default.Component {
+    constructor(){
+        super();
+        this.state = {
+            showAddToast: false
+        };
+    }
+    //set showAddToast to true
+    showAddToast() {
+        this.setState({
+            showAddToast: true
+        });
+        setTimeout(()=>{
+            this.setState({
+                showAddToast: false
+            });
+        }, 5000);
+    }
     render() {
         const movie = this.props.movie;
         const onBackClick = this.props.onBackClick;
         const token = this.props.token;
         const user = this.props.user;
         const addToFavorites = this.props.addToFavorites;
-        console.log(user);
-        console.log(token);
-        console.log(movie);
-        return(/*#__PURE__*/ _jsxRuntime.jsx(_containerDefault.default, {
+        const showAddToast = this.state.showAddToast;
+        return(/*#__PURE__*/ _jsxRuntime.jsxs(_containerDefault.default, {
             __source: {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 33
+                lineNumber: 48
             },
             __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
-                __source: {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 34
-                },
-                __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 35
+                        lineNumber: 49
                     },
                     __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_cardGroupDefault.default, {
+                    children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 36
+                            lineNumber: 50
                         },
                         __self: this,
-                        children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default, {
+                        children: /*#__PURE__*/ _jsxRuntime.jsx(_cardGroupDefault.default, {
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 37
+                                lineNumber: 51
                             },
                             __self: this,
-                            children: /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
+                            children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default, {
                                 __source: {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 38
+                                    lineNumber: 52
                                 },
                                 __self: this,
-                                children: [
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
-                                        __source: {
-                                            fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 39
-                                        },
-                                        __self: this,
-                                        children: movie.Title
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Img, {
-                                        variant: "top",
-                                        src: movie.ImagePath,
-                                        __source: {
-                                            fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 40
-                                        },
-                                        __self: this
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Text, {
-                                        __source: {
-                                            fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 41
-                                        },
-                                        __self: this,
-                                        children: movie.Description
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                        to: `/directors/${movie.Director.Name}`,
-                                        __source: {
-                                            fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 42
-                                        },
-                                        __self: this,
-                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                            variant: "primary",
+                                children: /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
+                                    __source: {
+                                        fileName: "src/components/movie-view/movie-view.jsx",
+                                        lineNumber: 53
+                                    },
+                                    __self: this,
+                                    children: [
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
                                             __source: {
                                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 43
+                                                lineNumber: 54
                                             },
                                             __self: this,
-                                            children: "Director"
-                                        })
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                        to: `/genres/${movie.Genre.Name}`,
-                                        __source: {
-                                            fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 45
-                                        },
-                                        __self: this,
-                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                            variant: "primary",
+                                            children: movie.Title
+                                        }),
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Img, {
+                                            variant: "top",
+                                            src: movie.ImagePath,
                                             __source: {
                                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 46
+                                                lineNumber: 55
+                                            },
+                                            __self: this
+                                        }),
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Text, {
+                                            __source: {
+                                                fileName: "src/components/movie-view/movie-view.jsx",
+                                                lineNumber: 56
                                             },
                                             __self: this,
-                                            children: "Genre"
+                                            children: movie.Description
+                                        }),
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                            to: `/directors/${movie.Director.Name}`,
+                                            __source: {
+                                                fileName: "src/components/movie-view/movie-view.jsx",
+                                                lineNumber: 57
+                                            },
+                                            __self: this,
+                                            children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                                variant: "primary",
+                                                __source: {
+                                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                                    lineNumber: 58
+                                                },
+                                                __self: this,
+                                                children: "Director"
+                                            })
+                                        }),
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                                            to: `/genres/${movie.Genre.Name}`,
+                                            __source: {
+                                                fileName: "src/components/movie-view/movie-view.jsx",
+                                                lineNumber: 60
+                                            },
+                                            __self: this,
+                                            children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                                variant: "primary",
+                                                __source: {
+                                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                                    lineNumber: 61
+                                                },
+                                                __self: this,
+                                                children: "Genre"
+                                            })
+                                        }),
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                            variant: "primary",
+                                            type: "submit",
+                                            onClick: ()=>{
+                                                onBackClick();
+                                            },
+                                            __source: {
+                                                fileName: "src/components/movie-view/movie-view.jsx",
+                                                lineNumber: 63
+                                            },
+                                            __self: this,
+                                            children: "Back"
+                                        }),
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                            variant: "primary",
+                                            onClick: ()=>{
+                                                addToFavorites(user, movie._id, token);
+                                                this.showAddToast();
+                                            },
+                                            __source: {
+                                                fileName: "src/components/movie-view/movie-view.jsx",
+                                                lineNumber: 64
+                                            },
+                                            __self: this,
+                                            children: "Add to Favorites"
                                         })
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                        variant: "primary",
-                                        type: "submit",
-                                        onClick: ()=>{
-                                            onBackClick();
-                                        },
-                                        __source: {
-                                            fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 48
-                                        },
-                                        __self: this,
-                                        children: "Back"
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                        variant: "primary",
-                                        onClick: ()=>addToFavorites(user, movie._id, token)
-                                        ,
-                                        __source: {
-                                            fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 49
-                                        },
-                                        __self: this,
-                                        children: "Add to Favorites"
-                                    })
-                                ]
+                                    ]
+                                })
+                            })
+                        })
+                    })
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+                    __source: {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 77
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                        md: 4,
+                        __source: {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 78
+                        },
+                        __self: this,
+                        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.ToastContainer, {
+                            className: "fixed-top top-0 start-50",
+                            __source: {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 79
+                            },
+                            __self: this,
+                            children: /*#__PURE__*/ _jsxRuntime.jsx(_toastDefault.default, {
+                                show: showAddToast,
+                                bg: 'success',
+                                __source: {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 80
+                                },
+                                __self: this,
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_toastDefault.default.Body, {
+                                    __source: {
+                                        fileName: "src/components/movie-view/movie-view.jsx",
+                                        lineNumber: 81
+                                    },
+                                    __self: this,
+                                    children: "You added this movie to your list of favorites"
+                                })
                             })
                         })
                     })
                 })
-            })
+            ]
         }));
     }
 }
@@ -44269,7 +44331,7 @@ MovieView.PropTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Card":"MoOk8","react-bootstrap/CardGroup":"lNZc4","react-bootstrap/Container":"2PRIq","react-bootstrap/Col":"fbam0","react-bootstrap/Row":"c0x1x","react-bootstrap/Button":"9CzHT","axios":"iYoWk","react-router-dom":"cpyQW","./movie-view.scss":"kvL93","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5V79J"}],"kvL93":[function() {},{}],"3yOmG":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Card":"MoOk8","react-bootstrap/CardGroup":"lNZc4","react-bootstrap/Container":"2PRIq","react-bootstrap/Col":"fbam0","react-bootstrap/Row":"c0x1x","react-bootstrap/Button":"9CzHT","axios":"iYoWk","react-router-dom":"cpyQW","./movie-view.scss":"kvL93","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5V79J","react-bootstrap/Toast":"lktoE","react-bootstrap":"h2YVd"}],"kvL93":[function() {},{}],"3yOmG":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$fe54 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -47496,7 +47558,7 @@ class ProfileView extends _reactDefault.default.Component {
                                         lineNumber: 279
                                     },
                                     __self: this,
-                                    children: "You deleted this movie from your list of favorites."
+                                    children: "You deleted this movie from your list of favorites"
                                 })
                             })
                         })

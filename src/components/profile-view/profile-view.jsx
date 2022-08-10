@@ -276,7 +276,7 @@ class ProfileView extends React.Component {
           <Col md={4}>
             <ToastContainer className="fixed-top top-0 start-50">
               <Toast show={showDeleteToast} bg={'success'}>
-                <Toast.Body>You deleted this movie from your list of favorites.</Toast.Body>
+                <Toast.Body>You deleted this movie from your list of favorites</Toast.Body>
               </Toast>
             </ToastContainer>
           </Col>

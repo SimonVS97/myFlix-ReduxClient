@@ -7,7 +7,8 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-
+import Toast from 'react-bootstrap/Toast';
+import { ToastContainer } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
 
@@ -16,8 +17,24 @@ import './movie-view.scss';
 
 export class MovieView extends React.Component {
 
+  constructor() {
+    super();
+    this.state = {
+      showAddToast: false
+    }
+  }
 
-
+  //set showAddToast to true
+  showAddToast() {
+    this.setState({
+      showAddToast: true
+    })
+    setTimeout(() => {
+      this.setState({
+        showAddToast: false
+      })
+    }, 5000);
+  }
 
   render() {
     const movie = this.props.movie;
@@ -25,9 +42,7 @@ export class MovieView extends React.Component {
     const token = this.props.token;
     const user = this.props.user;
     const addToFavorites = this.props.addToFavorites;
-    console.log(user);
-    console.log(token);
-    console.log(movie);
+    const showAddToast = this.state.showAddToast;
 
     return (
       <Container>
@@ -46,10 +61,26 @@ export class MovieView extends React.Component {
                     <Button variant="primary">Genre</Button>
                   </Link>
                   <Button variant="primary" type="submit" onClick={() => { onBackClick(); }}>Back</Button>
-                  <Button variant="primary" onClick={() => addToFavorites(user, movie._id, token)}>Add to Favorites</Button>
+                  <Button
+                    variant="primary"
+                    onClick={() => {
+                      addToFavorites(user, movie._id, token);
+                      this.showAddToast()
+                    }}>
+                    Add to Favorites
+                  </Button>
                 </Card.Body>
               </Card>
             </CardGroup>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={4}>
+            <ToastContainer className="fixed-top top-0 start-50">
+              <Toast show={showAddToast} bg={'success'}>
+                <Toast.Body>You added this movie to your list of favorites</Toast.Body>
+              </Toast>
+            </ToastContainer>
           </Col>
         </Row>
       </Container>
