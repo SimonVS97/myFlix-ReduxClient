@@ -1,1 +1,1 @@
-# My Flix Client
+# My Flix Redux Client
