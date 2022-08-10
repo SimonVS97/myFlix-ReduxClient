@@ -17,11 +17,17 @@ export class DirectorView extends React.Component {
     }
   }
 
-  //set showAddToast to true
+  //set showMovies to true
   showMovies() {
-    this.setState({
-      showMovies: true
-    })
+    if (!this.state.showMovies) {
+      this.setState({
+        showMovies: true
+      })
+    } else {
+      this.setState({
+        showMovies: false
+      })
+    }
   }
 
 

@@ -46646,10 +46646,13 @@ class DirectorView extends _reactDefault.default.Component {
             showMovies: false
         };
     }
-    //set showAddToast to true
+    //set showMovies to true
     showMovies() {
-        this.setState({
+        if (!this.state.showMovies) this.setState({
             showMovies: true
+        });
+        else this.setState({
+            showMovies: false
         });
     }
     render() {
@@ -46661,45 +46664,45 @@ class DirectorView extends _reactDefault.default.Component {
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_containerDefault.default, {
             __source: {
                 fileName: "src/components/director-view/director-view.jsx",
-                lineNumber: 38
+                lineNumber: 44
             },
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 39
+                        lineNumber: 45
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 40
+                            lineNumber: 46
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_cardGroupDefault.default, {
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 41
+                                lineNumber: 47
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default, {
                                 __source: {
                                     fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 42
+                                    lineNumber: 48
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
                                     __source: {
                                         fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 43
+                                        lineNumber: 49
                                     },
                                     __self: this,
                                     children: [
                                         /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
                                             __source: {
                                                 fileName: "src/components/director-view/director-view.jsx",
-                                                lineNumber: 44
+                                                lineNumber: 50
                                             },
                                             __self: this,
                                             children: director.Name
@@ -46707,7 +46710,7 @@ class DirectorView extends _reactDefault.default.Component {
                                         /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Text, {
                                             __source: {
                                                 fileName: "src/components/director-view/director-view.jsx",
-                                                lineNumber: 45
+                                                lineNumber: 51
                                             },
                                             __self: this,
                                             children: [
@@ -46718,7 +46721,7 @@ class DirectorView extends _reactDefault.default.Component {
                                         /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Text, {
                                             __source: {
                                                 fileName: "src/components/director-view/director-view.jsx",
-                                                lineNumber: 46
+                                                lineNumber: 52
                                             },
                                             __self: this,
                                             children: director.Bio
@@ -46727,14 +46730,14 @@ class DirectorView extends _reactDefault.default.Component {
                                             to: `/`,
                                             __source: {
                                                 fileName: "src/components/director-view/director-view.jsx",
-                                                lineNumber: 47
+                                                lineNumber: 53
                                             },
                                             __self: this,
                                             children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                                                 variant: "primary",
                                                 __source: {
                                                     fileName: "src/components/director-view/director-view.jsx",
-                                                    lineNumber: 48
+                                                    lineNumber: 54
                                                 },
                                                 __self: this,
                                                 children: "Back"
@@ -46745,7 +46748,7 @@ class DirectorView extends _reactDefault.default.Component {
                                             ,
                                             __source: {
                                                 fileName: "src/components/director-view/director-view.jsx",
-                                                lineNumber: 50
+                                                lineNumber: 56
                                             },
                                             __self: this,
                                             children: "Directed Movies"
@@ -46759,31 +46762,31 @@ class DirectorView extends _reactDefault.default.Component {
                 showMovies ? /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 57
+                        lineNumber: 63
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                         __source: {
                             fileName: "src/components/director-view/director-view.jsx",
-                            lineNumber: 58
+                            lineNumber: 64
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default, {
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 59
+                                lineNumber: 65
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Body, {
                                 __source: {
                                     fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 60
+                                    lineNumber: 66
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
                                     __source: {
                                         fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 61
+                                        lineNumber: 67
                                     },
                                     __self: this,
                                     children: "Directed Movies"
@@ -46794,28 +46797,28 @@ class DirectorView extends _reactDefault.default.Component {
                 }) : /*#__PURE__*/ _jsxRuntime.jsx("div", {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 66
+                        lineNumber: 72
                     },
                     __self: this
                 }),
                 showMovies ? /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 68
+                        lineNumber: 74
                     },
                     __self: this,
                     children: directormovies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                             md: 4,
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 70
+                                lineNumber: 76
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                                 movie: movie,
                                 __source: {
                                     fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 71
+                                    lineNumber: 77
                                 },
                                 __self: this
                             })
@@ -46824,7 +46827,7 @@ class DirectorView extends _reactDefault.default.Component {
                 }) : /*#__PURE__*/ _jsxRuntime.jsx("div", {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 75
+                        lineNumber: 81
                     },
                     __self: this
                 })
@@ -46867,51 +46870,67 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _reactRouterDom = require("react-router-dom");
 var _movieCard = require("../movie-card/movie-card");
 class GenreView extends _reactDefault.default.Component {
+    constructor(){
+        super();
+        this.state = {
+            showMovies: false
+        };
+    }
+    //set showMovies to true
+    showMovies() {
+        if (!this.state.showMovies) this.setState({
+            showMovies: true
+        });
+        else this.setState({
+            showMovies: false
+        });
+    }
     render() {
         const genre = this.props.genre;
         const genremovies = this.props.genremovies;
+        const showMovies = this.state.showMovies;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_containerDefault.default, {
             __source: {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 19
+                lineNumber: 38
             },
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 20
+                        lineNumber: 39
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                         __source: {
                             fileName: "src/components/genre-view/genre-view.jsx",
-                            lineNumber: 21
+                            lineNumber: 40
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_cardGroupDefault.default, {
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 22
+                                lineNumber: 41
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default, {
                                 __source: {
                                     fileName: "src/components/genre-view/genre-view.jsx",
-                                    lineNumber: 23
+                                    lineNumber: 42
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
                                     __source: {
                                         fileName: "src/components/genre-view/genre-view.jsx",
-                                        lineNumber: 24
+                                        lineNumber: 43
                                     },
                                     __self: this,
                                     children: [
                                         /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
                                             __source: {
                                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                                lineNumber: 25
+                                                lineNumber: 44
                                             },
                                             __self: this,
                                             children: genre.Name
@@ -46919,7 +46938,7 @@ class GenreView extends _reactDefault.default.Component {
                                         /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Text, {
                                             __source: {
                                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                                lineNumber: 26
+                                                lineNumber: 45
                                             },
                                             __self: this,
                                             children: genre.Description
@@ -46928,18 +46947,28 @@ class GenreView extends _reactDefault.default.Component {
                                             to: `/`,
                                             __source: {
                                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                                lineNumber: 27
+                                                lineNumber: 46
                                             },
                                             __self: this,
                                             children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                                                 variant: "primary",
                                                 __source: {
                                                     fileName: "src/components/genre-view/genre-view.jsx",
-                                                    lineNumber: 28
+                                                    lineNumber: 47
                                                 },
                                                 __self: this,
                                                 children: "Back"
                                             })
+                                        }),
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                            onClick: ()=>this.showMovies()
+                                            ,
+                                            __source: {
+                                                fileName: "src/components/genre-view/genre-view.jsx",
+                                                lineNumber: 49
+                                            },
+                                            __self: this,
+                                            children: "Genre Movies"
                                         })
                                     ]
                                 })
@@ -46947,34 +46976,34 @@ class GenreView extends _reactDefault.default.Component {
                         })
                     })
                 }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+                showMovies ? /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 35
+                        lineNumber: 56
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                         __source: {
                             fileName: "src/components/genre-view/genre-view.jsx",
-                            lineNumber: 36
+                            lineNumber: 57
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default, {
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 37
+                                lineNumber: 58
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Body, {
                                 __source: {
                                     fileName: "src/components/genre-view/genre-view.jsx",
-                                    lineNumber: 38
+                                    lineNumber: 59
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Title, {
                                     __source: {
                                         fileName: "src/components/genre-view/genre-view.jsx",
-                                        lineNumber: 39
+                                        lineNumber: 60
                                     },
                                     __self: this,
                                     children: "Some movies of this genre"
@@ -46982,30 +47011,42 @@ class GenreView extends _reactDefault.default.Component {
                             })
                         })
                     })
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+                }) : /*#__PURE__*/ _jsxRuntime.jsx("div", {
                     __source: {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 44
+                        lineNumber: 66
+                    },
+                    __self: this
+                }),
+                showMovies ? /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+                    __source: {
+                        fileName: "src/components/genre-view/genre-view.jsx",
+                        lineNumber: 68
                     },
                     __self: this,
                     children: genremovies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                             md: 4,
                             __source: {
                                 fileName: "src/components/genre-view/genre-view.jsx",
-                                lineNumber: 46
+                                lineNumber: 70
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                                 movie: movie,
                                 __source: {
                                     fileName: "src/components/genre-view/genre-view.jsx",
-                                    lineNumber: 47
+                                    lineNumber: 71
                                 },
                                 __self: this
                             })
                         })
                     )
+                }) : /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                    __source: {
+                        fileName: "src/components/genre-view/genre-view.jsx",
+                        lineNumber: 75
+                    },
+                    __self: this
                 })
             ]
         }));

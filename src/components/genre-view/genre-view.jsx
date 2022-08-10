@@ -9,11 +9,30 @@ import { Link } from 'react-router-dom';
 import { MovieCard } from '../movie-card/movie-card';
 
 export class GenreView extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      showMovies: false
+    }
+  }
 
+  //set showMovies to true
+  showMovies() {
+    if (!this.state.showMovies) {
+      this.setState({
+        showMovies: true
+      })
+    } else {
+      this.setState({
+        showMovies: false
+      })
+    }
+  }
 
   render() {
     const genre = this.props.genre;
     const genremovies = this.props.genremovies;
+    const showMovies = this.state.showMovies;
 
     return (
       <Container>
@@ -27,27 +46,33 @@ export class GenreView extends React.Component {
                   <Link to={`/`}>
                     <Button variant="primary">Back</Button>
                   </Link>
+                  <Button onClick={() => this.showMovies()}>Genre Movies</Button>
                 </Card.Body>
               </Card>
             </CardGroup>
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <Card>
-              <Card.Body>
-                <Card.Title>Some movies of this genre</Card.Title>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-        <Row>
-          {genremovies.map(movie => (
-            <Col md={4}>
-              <MovieCard movie={movie} />
+        {showMovies ?
+          <Row>
+            <Col>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Some movies of this genre
+                  </Card.Title>
+                </Card.Body>
+              </Card>
             </Col>
-          ))}
-        </Row>
+          </Row>
+          : <div></div>}
+        {showMovies ?
+          <Row>
+            {genremovies.map(movie => (
+              <Col md={4}>
+                <MovieCard movie={movie} />
+              </Col>
+            ))}
+          </Row>
+          : <div></div>}
       </Container>
     )
 
