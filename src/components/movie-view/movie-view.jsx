@@ -47,7 +47,7 @@ export class MovieView extends React.Component {
     return (
       <Container>
         <Row>
-          <Col>
+          <Col md={{ span: 6, offset: 3 }}>
             <CardGroup>
               <Card>
                 <Card.Body>

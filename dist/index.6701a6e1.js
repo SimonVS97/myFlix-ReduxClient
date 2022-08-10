@@ -44159,6 +44159,10 @@ class MovieView extends _reactDefault.default.Component {
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                        md: {
+                            span: 6,
+                            offset: 3
+                        },
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 50
