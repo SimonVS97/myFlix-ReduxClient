@@ -40,10 +40,10 @@ export class MovieView extends React.Component {
                   <Card.Img variant="top" src={movie.ImagePath}></Card.Img>
                   <Card.Text>{movie.Description}</Card.Text>
                   <Link to={`/directors/${movie.Director.Name}`}>
-                    <Button variant="link">Director</Button>
+                    <Button variant="primary">Director</Button>
                   </Link>
                   <Link to={`/genres/${movie.Genre.Name}`}>
-                    <Button variant="link">Genre</Button>
+                    <Button variant="primary">Genre</Button>
                   </Link>
                   <Button variant="primary" type="submit" onClick={() => { onBackClick(); }}>Back</Button>
                   <Button variant="primary" onClick={() => addToFavorites(user, movie._id, token)}>Add to Favorites</Button>

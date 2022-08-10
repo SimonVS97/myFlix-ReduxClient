@@ -51,25 +51,13 @@ class MainView extends React.Component {
 
   // method that will add movie to list of favorites
   addToFavorites(user, movieID, token) {
-    fetch(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`, {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
+    axios.post(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`, {},
+      { headers: { Authorization: `Bearer ${token}` } })
+      .then(response => {
+        console.log(response);
+      }).catch(function (error) {
+        console.log(error);
       });
-    /*
-        axios.post(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`, {}
-          { headers: { Authorization: `Bearer ${token}` } })
-          .then(response => {
-            console.log(response);
-          }).catch(function (error) {
-            console.log(error);
-          }); */
   }
 
   getMovies(token) {

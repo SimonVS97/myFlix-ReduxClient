@@ -30,7 +30,7 @@ export class MovieCard extends React.Component {
             <Card.Img variant="top" src={movie.ImagePath} style={{ height: '70%' }} />
             <Card.Text>{movie.Description}</Card.Text>
             <Link to={`/movies/${movie._id}`}>
-              <Button variant='link'>Open</Button>
+              <Button variant='primary'>Open</Button>
             </Link>
             {typeof deleteFavMovie === "function" &&
               <Button onClick={() => deleteFavMovie(user, movie._id, token)}>Delete from list of favorites</Button>
@@ -51,4 +51,3 @@ MovieCard.PropTypes = {
   onMovieClick: PropTypes.func.isRequired
 };
 
-            //<Button onClick={() => onMovieClick(movie)} variant="primary">Open</Button>

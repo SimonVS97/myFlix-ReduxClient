@@ -10,6 +10,8 @@ import Form from 'react-bootstrap/Form';
 import { MovieCard } from '../movie-card/movie-card';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Toast from 'react-bootstrap/Toast';
+import { ToastContainer } from 'react-bootstrap';
 
 
 class ProfileView extends React.Component {
@@ -22,7 +24,8 @@ class ProfileView extends React.Component {
       username: null,
       password: null,
       email: null,
-      birthday: null
+      birthday: null,
+      showDeleteToast: false
     }
   }
 
@@ -58,6 +61,18 @@ class ProfileView extends React.Component {
     this.setState({
       favMovies: newFavMovies
     })
+  }
+
+  //set showDeleteToast to true
+  showDeleteToast() {
+    this.setState({
+      showDeleteToast: true
+    })
+    setTimeout(() => {
+      this.setState({
+        showDeleteToast: false
+      })
+    }, 5000);
   }
 
   // function to validate user input
@@ -143,6 +158,8 @@ class ProfileView extends React.Component {
     this.setFavMovies(favMoviesArr);
   }
 
+
+
   // method that sends delete request to delete movie from favorites
   deleteFavMovie(user, movieID, token) {
     axios.delete(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`,
@@ -151,6 +168,8 @@ class ProfileView extends React.Component {
       this.setState({
         profile: response.data
       })
+      this.showDeleteToast();
+      this.getUserFavMovies();
     })
   }
 
@@ -168,13 +187,18 @@ class ProfileView extends React.Component {
   }
 
 
+
+
   render() {
     const user = this.props.user;
     const token = localStorage.getItem('token');
     const profile = this.state.profile;
     const favMovies = this.state.favMovies;
+    const showDeleteToast = this.state.showDeleteToast;
 
-    console.log('array', favMovies);
+    console.log(showDeleteToast);
+
+
 
     return (
       <Container>
@@ -187,7 +211,7 @@ class ProfileView extends React.Component {
                     <Card.Title>Profile information</Card.Title>
                     <Card.Text>Username: {profile.Username}</Card.Text>
                     <Card.Text>Email: {profile.Email}</Card.Text>
-                    <Card.Text>Date of Birth: {profile.Birthday}</Card.Text>
+                    <Card.Text>Date of Birth: {profile.Birthday.split("T")[0]}</Card.Text>
                   </Card.Body>
                 </Card>
               </CardGroup>
@@ -247,6 +271,15 @@ class ProfileView extends React.Component {
               </Col>
             ))
           }
+        </Row>
+        <Row>
+          <Col md={4}>
+            <ToastContainer className="fixed-top top-0 start-50">
+              <Toast show={showDeleteToast} bg={'success'}>
+                <Toast.Body>You deleted this movie from your list of favorites.</Toast.Body>
+              </Toast>
+            </ToastContainer>
+          </Col>
         </Row>
       </Container>
     )
