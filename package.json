@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SimonVS97/myFlix-client2.git"
+    "url": "git+https://github.com/SimonVS97/myFlix-ReduxClient.git"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/SimonVS97/myFlix-client2/issues"
   },
-  "homepage": "https://github.com/SimonVS97/myFlix-client2#readme",
+  "homepage": "https://github.com/SimonVS97/myFlix-ReduxClient",
   "dependencies": {
     "axios": "^0.27.2",
     "buffer": "^6.0.3",
