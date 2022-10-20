@@ -1,8 +1,7 @@
 # My Flix Redux Client
 
-
 ## Project Description
-This is an app that displays information about movies, directors and genres. User can create an account and create list of favorites movies. Users can also update their profile information and also deregister from the app.
+This is an app that displays information about movies, directors and genres. User can create an account and create list of favorites movies. Users can also update their profile information and  deregister from the app.
 The app is structured according to the flux pattern with the help of React-Redux.
 
 ## How to get the project running
