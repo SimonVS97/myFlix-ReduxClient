@@ -2,13 +2,14 @@
   "name": "myflix-client2",
   "version": "1.0.0",
   "description": "",
+  "source": "src/index.html",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "serve": "parcel src/index.html",
-    "start": "parcel src/index.html",
+    "start": "parcel",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel src/index.html"
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",
@@ -37,8 +38,8 @@
     "process": false
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.5.0",
+    "@parcel/transformer-sass": "^2.7.0",
     "gh-pages": "^4.0.0",
-    "parcel": "^2.5.0"
+    "parcel": "^2.7.0"
   }
 }

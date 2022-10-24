@@ -10,6 +10,10 @@
 
 
 
+.input--error {
+  color: red;
+}
+
 .movieCardContainer {
   margin-bottom: 15px;
 }

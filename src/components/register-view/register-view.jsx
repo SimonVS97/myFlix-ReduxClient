@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import { Button, Form, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+
+import './register-view.scss';
 
 
 export function RegisterView(props) {
@@ -24,7 +20,7 @@ export function RegisterView(props) {
   const validate = () => {
     let isRegis = true;
     if (!username) {
-      setUsername('Username Required');
+      setUsernameErr('Username Required');
       isRegis = false;
     } else if (username.length < 2) {
       setUsernameErr('Username must be 2 characters long');
@@ -34,7 +30,7 @@ export function RegisterView(props) {
       setPasswordErr('Password Required');
       isRegis = false;
     } else if (password.length < 6) {
-      setPassword('Password must be 6 characters long');
+      setPasswordErr('Password must be 6 characters long');
       isRegis = false;
     }
     if (!email) {
@@ -49,7 +45,7 @@ export function RegisterView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, birthday);
+    console.log('hello');
     // registration info validation
     const isRegis = validate();
     if (isRegis) {
@@ -92,6 +88,7 @@ export function RegisterView(props) {
                       placeholder="Enter a username"
                       required>
                     </Form.Control>
+                    <p class="input--error">{usernameErr && usernameErr}</p>
                   </Form.Group>
 
                   <Form.Group>
@@ -103,6 +100,7 @@ export function RegisterView(props) {
                       required
                       placeholder="Enter a password">
                     </Form.Control>
+                    <p class="input--error">{passwordErr && passwordErr}</p>
                   </Form.Group>
 
                   <Form.Group>
@@ -114,6 +112,7 @@ export function RegisterView(props) {
                       required
                       placeholder="Enter an e-mail">
                     </Form.Control>
+                    <p class="input--error">{emailErr && emailErr}</p>
                   </Form.Group>
 
                   <Form.Group>
@@ -127,8 +126,7 @@ export function RegisterView(props) {
                     </Form.Control>
                   </Form.Group>
                   <br></br>
-
-                  <Button type="submit" variant="primary" onClick={() => handleSubmit()}>Submit</Button>
+                  <Button type="submit" variant="primary" onClick={handleSubmit}>Submit</Button>
                   <Link to={`/`}>
                     <Button variant='primary'>Log-In</Button>
                   </Link>
@@ -142,7 +140,3 @@ export function RegisterView(props) {
   )
 }
 
-
-RegisterView.PropTypes = {
-  OnLogInClick: PropTypes.func.isRequired
-}; 
