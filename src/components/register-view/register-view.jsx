@@ -64,78 +64,76 @@ export function RegisterView(props) {
         })
         .catch(e => {
           console.log('error registering user')
+          console.log(e);
         });
     }
   };
 
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <CardGroup>
-            <Card>
-              <Card.Body>
-                <Form>
-                  <Card.Title>Please Register</Card.Title>
-                  <Form.Group>
-                    <Form.Label> Username:</Form.Label >
-                    <Form.Control
-                      type="text"
-                      value={username}
-                      onChange={e => setUsername(e.target.value)}
-                      placeholder="Enter a username"
-                      required>
-                    </Form.Control>
-                    <p className="input--error">{usernameErr && usernameErr}</p>
-                  </Form.Group>
+    <Col xs={5}>
+      <CardGroup>
+        <Card className='text-center bg-dark text-white'>
+          <Card.Body>
+            <Form>
+              <Card.Title>Please Register</Card.Title>
+              <Form.Group>
+                <Form.Label> Username:</Form.Label >
+                <Form.Control
+                  type="text"
+                  value={username}
+                  onChange={e => setUsername(e.target.value)}
+                  placeholder="Username must at least be 2 characters long"
+                  required>
+                </Form.Control>
+                <p className="input--error">{usernameErr && usernameErr}</p>
+              </Form.Group>
 
-                  <Form.Group>
-                    <Form.Label>Password:</Form.Label>
-                    <Form.Control
-                      type="password"
-                      value={password}
-                      onChange={e => setPassword(e.target.value)}
-                      required
-                      placeholder="Enter a password">
-                    </Form.Control>
-                    <p className="input--error">{passwordErr && passwordErr}</p>
-                  </Form.Group>
+              <Form.Group>
+                <Form.Label>Password:</Form.Label>
+                <Form.Control
+                  type="password"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  required
+                  placeholder="Password must at least be 6 characters long">
+                </Form.Control>
+                <p className="input--error">{passwordErr && passwordErr}</p>
+              </Form.Group>
 
-                  <Form.Group>
-                    <Form.Label>E-Mail:</Form.Label>
-                    <Form.Control
-                      type="email"
-                      value={email}
-                      onChange={e => setEmail(e.target.value)}
-                      required
-                      placeholder="Enter an e-mail">
-                    </Form.Control>
-                    <p className="input--error">{emailErr && emailErr}</p>
-                  </Form.Group>
+              <Form.Group>
+                <Form.Label>E-Mail:</Form.Label>
+                <Form.Control
+                  type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
+                  placeholder="Email must contain an @">
+                </Form.Control>
+                <p className="input--error">{emailErr && emailErr}</p>
+              </Form.Group>
 
-                  <Form.Group>
-                    <Form.Label>Date of birth:</Form.Label>
-                    <Form.Control
-                      type="date"
-                      value={birthday}
-                      onChange={e => setBirthDay(e.target.value)}
-                      required
-                    >
-                    </Form.Control>
-                  </Form.Group>
-                  <br></br>
-                  <Button type="submit" variant="primary" onClick={handleSubmit}>Submit</Button>
-                  <Link to={`/`}>
-                    <Button variant='primary'>Log-In</Button>
-                  </Link>
-                </Form>
-              </Card.Body>
-            </Card>
-          </CardGroup>
-        </Col>
-      </Row>
-    </Container >
+              <Form.Group>
+                <Form.Label>Date of birth:</Form.Label>
+                <Form.Control
+                  type="date"
+                  value={birthday}
+                  onChange={e => setBirthDay(e.target.value)}
+                  required
+                >
+                </Form.Control>
+              </Form.Group>
+              <br></br>
+              <Button className="mb-3 btn-lg px-5" type="submit" variant="outline-primary" onClick={handleSubmit}>Submit</Button>
+              <br></br>
+              <Link to={`/`}>
+                <Button className="mb-3 btn-lg px-5" variant='outline-primary'>Log-In</Button>
+              </Link>
+            </Form>
+          </Card.Body>
+        </Card>
+      </CardGroup>
+    </Col>
   )
 }
 
