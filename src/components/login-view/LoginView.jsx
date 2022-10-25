@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
+import './LoginView.scss';
 
 
 import { setUser } from '../../actions/actions';
@@ -47,10 +48,8 @@ function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
     // validate input
     const isReq = validate();
-    console.log(isReq);
     if (isReq) {
       /* Send a request to the server for authentication */
       axios.post('https://movie-app-svs.herokuapp.com/login', {
@@ -69,42 +68,40 @@ function LoginView(props) {
           //props.onLoggedIn(data);
         })
         .catch(e => {
-          console.log('no such user')
+          alert('No such user. Please check you credentials.')
         });
     }
   };
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <CardGroup>
-            <Card>
-              <Card.Body>
-                <Form>
-                  <Card.Title>Please Log-In</Card.Title>
-                  <Form.Group controlId="formUsername">
-                    <Form.Label>Username:</Form.Label>
-                    <Form.Control type="text" onChange={e => setUsername(e.target.value)}></Form.Control>
-                    {usernameErr && <p>{usernameErr}</p>}
-                  </Form.Group>
-                  <Form.Group controlId="formPassword">
-                    <Form.Label>Password:</Form.Label>
-                    <Form.Control type="password" onChange={e => setPassword(e.target.value)}></Form.Control>
-                    {passwordErr && <p>{passwordErr}</p>}
-                  </Form.Group>
-                  <br></br>
-                  <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
-                  <Link to={`/register`}>
-                    <Button variant='primary'>Register</Button>
-                  </Link>
-                </Form>
-              </Card.Body>
-            </Card>
-          </CardGroup>
-        </Col>
-      </Row>
-    </Container>
+    <Col xs={5}>
+      <CardGroup>
+        <Card className='text-center bg-dark text-white'>
+          <Card.Body>
+            <Form>
+              <Card.Title>Log-In</Card.Title>
+              <Card.Text>Please enter your username and password</Card.Text>
+              <Form.Group controlId="formUsername">
+                <Form.Control type="text" onChange={e => setUsername(e.target.value)} placeholder="Username"></Form.Control>
+                {usernameErr && <p className="input--error">{usernameErr}</p>}
+              </Form.Group>
+              <Form.Group controlId="formPassword">
+                <Form.Control type="password" onChange={e => setPassword(e.target.value)} placeholder="Password"></Form.Control>
+                {passwordErr && <p className="input--error">{passwordErr}</p>}
+              </Form.Group>
+              <br></br>
+              <Button className="mb-3 btn-lg px-5" variant="outline-primary" type="submit" onClick={handleSubmit}>Submit</Button>
+              <br></br>
+              <Card.Text>Don't have an account?</Card.Text>
+              <Link to={`/register`}>
+                <Button className="mb-3 btn-lg px-5" variant='outline-primary'>Register</Button>
+              </Link>
+            </Form>
+          </Card.Body>
+        </Card>
+      </CardGroup>
+    </Col>
+
 
   );
 

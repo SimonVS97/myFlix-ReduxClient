@@ -45,7 +45,6 @@ export function RegisterView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('hello');
     // registration info validation
     const isRegis = validate();
     if (isRegis) {
@@ -88,7 +87,7 @@ export function RegisterView(props) {
                       placeholder="Enter a username"
                       required>
                     </Form.Control>
-                    <p class="input--error">{usernameErr && usernameErr}</p>
+                    <p className="input--error">{usernameErr && usernameErr}</p>
                   </Form.Group>
 
                   <Form.Group>
@@ -100,7 +99,7 @@ export function RegisterView(props) {
                       required
                       placeholder="Enter a password">
                     </Form.Control>
-                    <p class="input--error">{passwordErr && passwordErr}</p>
+                    <p className="input--error">{passwordErr && passwordErr}</p>
                   </Form.Group>
 
                   <Form.Group>
@@ -112,7 +111,7 @@ export function RegisterView(props) {
                       required
                       placeholder="Enter an e-mail">
                     </Form.Control>
-                    <p class="input--error">{emailErr && emailErr}</p>
+                    <p className="input--error">{emailErr && emailErr}</p>
                   </Form.Group>
 
                   <Form.Group>
