@@ -82,7 +82,11 @@ class MainView extends React.Component {
 
     return (
       <Router>
-        <Menubar ></Menubar>
+        <Row>
+          <Col xs={2}></Col>
+          <Menubar ></Menubar>
+        </Row>
+
         <Row className="main-view justify-content-md-center">
 
           <Route exact path="/" render={() => {

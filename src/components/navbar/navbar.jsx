@@ -4,6 +4,10 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
+import Col from 'react-bootstrap/Col';
+
+import './navbar.scss';
+
 
 
 function Menubar(props) {
@@ -28,9 +32,9 @@ function Menubar(props) {
   };
 
   return (
-    <Navbar sticky='top'>
-      <Container>
-        <Navbar.Brand>myFlix-Cinema</Navbar.Brand>
+    <Col xs={8}>
+      <Navbar className="navbar" bg="dark" variant="dark" sticky='top'>
+        <Navbar.Brand className="brand">myFlix-Cinema</Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             {isAuth() && (
@@ -46,8 +50,8 @@ function Menubar(props) {
             )}
           </Nav>
         </Navbar.Collapse>
-      </Container>
-    </Navbar>
+      </Navbar>
+    </Col >
   );
 }
 
