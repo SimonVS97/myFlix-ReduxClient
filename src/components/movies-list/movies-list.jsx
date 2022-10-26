@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { MovieCard } from '../movie-card/movie-card';
 import VisibilityFilterInput from '../visibility-filter-input/visibility-filter-input';
 
+import './movies-list.scss';
+
 const mapStateToProps = state => {
   const { visibilityFilter } = state;
   return { visibilityFilter };
@@ -22,12 +24,11 @@ function MoviesList(props) {
   if (!movies) return <div className='main-view'></div>;
 
   return <>
-    {console.log(filteredMovies)}
     <Col md={12} style={{ margin: '1em' }}>
       <VisibilityFilterInput visibilityFilter={visibilityFilter} />
     </Col>
     {filteredMovies.map(m => (
-      <Col md={3} key={m._id}>
+      <Col md={3} key={m._id} className="cardContainer">
         <MovieCard movie={m} />
       </Col>
     ))}

@@ -20,12 +20,12 @@ export class MovieCard extends React.Component {
 
     return (
       <CardGroup id="movie-card" className='cardGroup'>
-        <Card id="movie-card" className="bg-dark text-white vh-500">
+        <Card className="bg-dark text-white vh-500">
           <Card.Body >
             <Card.Img variant="top" src={movie.ImagePath} style={{ height: '70%' }} />
             <Card.Title>{movie.Title}</Card.Title>
             <Link to={`/movies/${movie._id}`}>
-              <Button variant='primary'>Open</Button>
+              <Button className="button" variant='outline-secondary'>Open</Button>
             </Link>
             {typeof deleteFavMovie === "function" &&
               <Button onClick={() => deleteFavMovie(user, movie._id, token)}>Delete from list of favorites</Button>
