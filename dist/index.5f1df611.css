@@ -50,7 +50,7 @@
 }
 
 .button {
-  width: 100%;
+  width: 50%;
 }
 
 .cardContainer {
@@ -59,6 +59,10 @@
 
 .fUsername {
   margin-bottom: 0;
+}
+
+.cContainer {
+  margin-top: 5% !important;
 }
 
 .movieCardContainer {

@@ -255,9 +255,11 @@ class ProfileView extends React.Component {
               </Card>
             </CardGroup>
           </Col>
+        </Row>
+        <Row className="cContainer">
           {(showFavMovies && favMovies !== null) ?
             favMovies.map(m => (
-              <Col md={4}>
+              <Col md={4} >
                 <MovieCard
                   favMovies={favMovies}
                   movie={m}
@@ -276,6 +278,8 @@ class ProfileView extends React.Component {
             </Toast>
           </ToastContainer>
         </Row>
+
+
 
       </>
 

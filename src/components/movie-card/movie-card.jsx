@@ -28,7 +28,7 @@ export class MovieCard extends React.Component {
               <Button className="button" variant='outline-secondary'>Open</Button>
             </Link>
             {typeof deleteFavMovie === "function" &&
-              <Button variant='outline-secondary' onClick={() => deleteFavMovie(user, movie._id, token)}>Delete from list of favorites</Button>
+              <Button className="button" variant='outline-secondary' onClick={() => deleteFavMovie(user, movie._id, token)}>Remove</Button>
             }
           </Card.Body>
         </Card>
