@@ -36,22 +36,18 @@ export class GenreView extends React.Component {
 
     return (
       <Container>
-        <Row>
-          <Col>
-            <CardGroup>
-              <Card>
-                <Card.Body>
-                  <Card.Title>{genre.Name}</Card.Title>
-                  <Card.Text>{genre.Description}</Card.Text>
-                  <Link to={`/`}>
-                    <Button variant="primary">Back</Button>
-                  </Link>
-                  <Button onClick={() => this.showMovies()}>Genre Movies</Button>
-                </Card.Body>
-              </Card>
-            </CardGroup>
-          </Col>
-        </Row>
+        <CardGroup>
+          <Card className="bg-dark text-white vh-500">
+            <Card.Body>
+              <Card.Title>{genre.Name}</Card.Title>
+              <Card.Text>{genre.Description}</Card.Text>
+              <Link to={`/`}>
+                <Button variant="secondary">Back</Button>
+              </Link>
+              <Button variant="secondary" onClick={() => this.showMovies()}>Genre Movies</Button>
+            </Card.Body>
+          </Card>
+        </CardGroup>
         {showMovies ?
           <Row>
             <Col>
@@ -75,7 +71,5 @@ export class GenreView extends React.Component {
           : <div></div>}
       </Container>
     )
-
   }
-
 }
