@@ -6,16 +6,7 @@
   width: 100%;
 }
 
-.buttonAddToFav {
-  width: 100%;
-  max-width: 400px;
-}
-
-.buttonDirector, .buttonGenre {
-  width: 50%;
-}
-
-.buttonBack {
+.buttonAddToFav, .buttonBack {
   width: 100%;
   max-width: 400px;
 }
@@ -35,8 +26,9 @@
   margin: auto;
 }
 
-.cardDes {
-  text-align: center;
+.cardDes, .directorDes, .genreDes {
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .input--error {

@@ -3,14 +3,6 @@
   max-width: 400px;
 }
 
-.buttonDirector {
-  width: 50%;
-}
-
-.buttonGenre {
-  width: 50%;
-}
-
 .buttonBack {
   width: 100%;
   max-width: 400px;
@@ -32,5 +24,16 @@
 }
 
 .cardDes {
-  text-align: center;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.directorDes {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.genreDes {
+  padding-left: 5%;
+  padding-right: 5%;
 }

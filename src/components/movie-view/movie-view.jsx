@@ -53,16 +53,18 @@ export class MovieView extends React.Component {
               </div>
               <Card.Title className="cardTitle">{movie.Title}</Card.Title>
               <Card.Text className="cardDes">{movie.Description}</Card.Text>
-              <span>Director: </span>
-              <Link to={`/directors/${movie.Director.Name}`}>
-                <span>{movie.Director.Name}</span>
-              </Link>
-              <br></br>
-              <span>Genre: </span>
-              <Link to={`/genres/${movie.Genre.Name}`}>
-                <span>{movie.Genre.Name}</span>
-              </Link>
-              <br></br>
+              <Card.Text className="mx-auto directorDes">
+                <span>Director: </span>
+                <Link to={`/directors/${movie.Director.Name}`}>
+                  <span>{movie.Director.Name}</span>
+                </Link>
+              </Card.Text>
+              <Card.Text className="mx-auto genreDes">
+                <span>Genre: </span>
+                <Link to={`/genres/${movie.Genre.Name}`}>
+                  <span>{movie.Genre.Name}</span>
+                </Link>
+              </Card.Text>
               <Button
                 className='buttonAddToFav'
                 variant='outline-secondary'
