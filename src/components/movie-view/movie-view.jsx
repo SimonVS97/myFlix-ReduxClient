@@ -38,7 +38,6 @@ export class MovieView extends React.Component {
 
   render() {
     const movie = this.props.movie;
-    const onBackClick = this.props.onBackClick;
     const token = this.props.token;
     const user = this.props.user;
     const addToFavorites = this.props.addToFavorites;
@@ -73,7 +72,11 @@ export class MovieView extends React.Component {
                 }}>
                 Add to Favorites
               </Button>
-              <Button className="buttonBack" variant='outline-secondary' type="submit" onClick={() => { onBackClick(); }}>Back</Button>
+              <Link to={`/`}>
+                <Button className="buttonBack" variant='outline-secondary' type="submit" >
+                  Back
+                </Button>
+              </Link>
             </Card.Body>
           </Card>
         </CardGroup>
