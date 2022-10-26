@@ -1,5 +1,6 @@
 .buttonAddToFav {
   width: 100%;
+  max-width: 400px;
 }
 
 .buttonDirector {
@@ -12,4 +13,24 @@
 
 .buttonBack {
   width: 100%;
+  max-width: 400px;
+}
+
+.movie-img {
+  max-height: auto;
+  max-width: 400px;
+}
+
+.imgWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cardTitle {
+  margin: auto;
+  text-align: center;
+}
+
+.cardDes {
+  text-align: center;
 }

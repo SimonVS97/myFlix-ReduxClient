@@ -45,48 +45,44 @@ export class MovieView extends React.Component {
     const showAddToast = this.state.showAddToast;
 
     return (
-      <Container>
-        <Row>
-          <Col md={{ span: 6, offset: 3 }}>
-            <CardGroup>
-              <Card className="bg-dark text-white vh-500">
-                <Card.Body>
-                  <Card.Title>{movie.Title}</Card.Title>
-                  <Card.Img variant="top" src={movie.ImagePath}></Card.Img>
-                  <Card.Text>{movie.Description}</Card.Text>
-                  <Button
-
-                    className='buttonAddToFav'
-                    variant='outline-secondary'
-                    onClick={() => {
-                      addToFavorites(user, movie._id, token);
-                      this.showAddToast()
-                    }}>
-                    Add to Favorites
-                  </Button>
-                  <Link to={`/directors/${movie.Director.Name}`}>
-                    <Button variant='outline-secondary' className="buttonDirector">Director</Button>
-                  </Link>
-                  <Link to={`/genres/${movie.Genre.Name}`}>
-                    <Button className="buttonGenre" variant='outline-secondary'>Genre</Button>
-                  </Link>
-                  <Button className="buttonBack" variant='outline-secondary' type="submit" onClick={() => { onBackClick(); }}>Back</Button>
-                </Card.Body>
-              </Card>
-            </CardGroup>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={4}>
-            <ToastContainer className="fixed-top top-0 start-50">
-              <Toast show={showAddToast} bg={'success'}>
-                <Toast.Body>You added this movie to your list of favorites</Toast.Body>
-              </Toast>
-            </ToastContainer>
-          </Col>
-        </Row>
-      </Container>
-
+      <>
+        <CardGroup>
+          <Card className="bg-dark text-white vh-500">
+            <Card.Body className="cardBody">
+              <div className="imgWrapper">
+                <Card.Img className="movie-img" variant="top" src={movie.ImagePath}></Card.Img>
+              </div>
+              <Card.Title className="cardTitle">{movie.Title}</Card.Title>
+              <Card.Text className="cardDes">{movie.Description}</Card.Text>
+              <span>Director: </span>
+              <Link to={`/directors/${movie.Director.Name}`}>
+                <span>{movie.Director.Name}</span>
+              </Link>
+              <br></br>
+              <span>Genre: </span>
+              <Link to={`/genres/${movie.Genre.Name}`}>
+                <span>{movie.Genre.Name}</span>
+              </Link>
+              <br></br>
+              <Button
+                className='buttonAddToFav'
+                variant='outline-secondary'
+                onClick={() => {
+                  addToFavorites(user, movie._id, token);
+                  this.showAddToast()
+                }}>
+                Add to Favorites
+              </Button>
+              <Button className="buttonBack" variant='outline-secondary' type="submit" onClick={() => { onBackClick(); }}>Back</Button>
+            </Card.Body>
+          </Card>
+        </CardGroup>
+        <ToastContainer className="fixed-top top-0 start-50">
+          <Toast show={showAddToast} bg={'success'}>
+            <Toast.Body>You added this movie to your list of favorites</Toast.Body>
+          </Toast>
+        </ToastContainer>
+      </>
     );
   }
 }
