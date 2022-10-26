@@ -15,20 +15,15 @@ export class MovieCard extends React.Component {
   render() {
     const movie = this.props.movie;
     const user = this.props.user;
-    const onMovieClick = this.props.onMovieClick;
     const token = this.props.token;
     const deleteFavMovie = this.props.deleteFavMovie;
-    const favMovies = this.props.favMovies;
-    console.log(movie._id);
-
 
     return (
-      <CardGroup className='cardGroup' >
-        <Card >
+      <CardGroup id="movie-card" className='cardGroup'>
+        <Card id="movie-card" className="bg-dark text-white vh-500">
           <Card.Body >
-            <Card.Title>{movie.Title}</Card.Title>
             <Card.Img variant="top" src={movie.ImagePath} style={{ height: '70%' }} />
-            <Card.Text>{movie.Description}</Card.Text>
+            <Card.Title>{movie.Title}</Card.Title>
             <Link to={`/movies/${movie._id}`}>
               <Button variant='primary'>Open</Button>
             </Link>
@@ -38,12 +33,11 @@ export class MovieCard extends React.Component {
           </Card.Body>
         </Card>
       </CardGroup>
-
     );
   }
 }
 
-MovieCard.PropTypes = {
+MovieCard.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired
