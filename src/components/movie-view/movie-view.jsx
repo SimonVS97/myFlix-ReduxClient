@@ -49,26 +49,28 @@ export class MovieView extends React.Component {
         <Row>
           <Col md={{ span: 6, offset: 3 }}>
             <CardGroup>
-              <Card>
+              <Card className="bg-dark text-white vh-500">
                 <Card.Body>
                   <Card.Title>{movie.Title}</Card.Title>
                   <Card.Img variant="top" src={movie.ImagePath}></Card.Img>
                   <Card.Text>{movie.Description}</Card.Text>
-                  <Link to={`/directors/${movie.Director.Name}`}>
-                    <Button variant="primary">Director</Button>
-                  </Link>
-                  <Link to={`/genres/${movie.Genre.Name}`}>
-                    <Button variant="primary">Genre</Button>
-                  </Link>
-                  <Button variant="primary" type="submit" onClick={() => { onBackClick(); }}>Back</Button>
                   <Button
-                    variant="primary"
+
+                    className='buttonAddToFav'
+                    variant='outline-secondary'
                     onClick={() => {
                       addToFavorites(user, movie._id, token);
                       this.showAddToast()
                     }}>
                     Add to Favorites
                   </Button>
+                  <Link to={`/directors/${movie.Director.Name}`}>
+                    <Button variant='outline-secondary' className="buttonDirector">Director</Button>
+                  </Link>
+                  <Link to={`/genres/${movie.Genre.Name}`}>
+                    <Button className="buttonGenre" variant='outline-secondary'>Genre</Button>
+                  </Link>
+                  <Button className="buttonBack" variant='outline-secondary' type="submit" onClick={() => { onBackClick(); }}>Back</Button>
                 </Card.Body>
               </Card>
             </CardGroup>

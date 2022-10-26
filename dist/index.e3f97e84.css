@@ -6,7 +6,17 @@
   width: 100%;
 }
 
+.buttonAddToFav {
+  width: 100%;
+}
 
+.buttonDirector, .buttonGenre {
+  width: 50%;
+}
+
+.buttonBack {
+  width: 100%;
+}
 
 .input--error {
   color: red;
