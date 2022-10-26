@@ -33,14 +33,10 @@ export class DirectorView extends React.Component {
     }
   }
 
-
   render() {
     const director = this.props.director;
     const directormovies = this.props.directormovies;
     const showMovies = this.state.showMovies;
-
-
-
 
     return (
       <>
@@ -50,9 +46,7 @@ export class DirectorView extends React.Component {
               <Card.Title>{director.Name}</Card.Title>
               <Card.Text>Born in {director.Birth}</Card.Text>
               <Card.Text>{director.Bio}</Card.Text>
-              <Link to={`/`}>
-                <Button variant='outline-secondary'>Back</Button>
-              </Link>
+              <Button variant='outline-secondary' onClick={() => { history.back() }}>Back</Button>
               <Button variant='outline-secondary' onClick={() => this.showMovies()}>Directed Movies</Button>
             </Card.Body>
           </Card>

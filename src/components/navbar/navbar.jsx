@@ -1,5 +1,4 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
@@ -7,8 +6,6 @@ import { connect } from 'react-redux';
 import Col from 'react-bootstrap/Col';
 
 import './navbar.scss';
-
-
 
 function Menubar(props) {
 
@@ -32,7 +29,7 @@ function Menubar(props) {
   };
 
   return (
-    <Col xs={8}>
+    <Col xs={12}>
       <Navbar className="navbar" bg="dark" variant="dark" sticky='top'>
         <Navbar.Brand className="brand">myFlix-Cinema</Navbar.Brand>
         <Navbar.Collapse id="basic-navbar-nav">
@@ -41,7 +38,7 @@ function Menubar(props) {
               <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>
             )}
             {isAuth() && (
-              <Button variant="link" onClick={() => {
+              <Button variant='dark' onClick={() => {
                 onLoggedOut()
               }}>Logout</Button>
             )}

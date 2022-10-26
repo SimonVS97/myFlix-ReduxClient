@@ -259,7 +259,7 @@ class ProfileView extends React.Component {
         <Row className="cContainer">
           {(showFavMovies && favMovies !== null) ?
             favMovies.map(m => (
-              <Col md={4} >
+              <Col md={4} className="cardContainer">
                 <MovieCard
                   favMovies={favMovies}
                   movie={m}
