@@ -6,8 +6,11 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import { MovieCard } from '../movie-card/movie-card';
+import MoviesList from '../movies-list/movies-list';
 
 import { Link } from 'react-router-dom';
+
+import './director-view';
 
 export class DirectorView extends React.Component {
   constructor() {
@@ -35,46 +38,50 @@ export class DirectorView extends React.Component {
     const director = this.props.director;
     const directormovies = this.props.directormovies;
     const showMovies = this.state.showMovies;
-    console.log(directormovies);
-    console.log(showMovies);
+
+
 
 
     return (
       <>
         <CardGroup>
-          <Card>
+          <Card className="bg-dark text-white vh-500">
             <Card.Body>
               <Card.Title>{director.Name}</Card.Title>
               <Card.Text>Born in {director.Birth}</Card.Text>
               <Card.Text>{director.Bio}</Card.Text>
               <Link to={`/`}>
-                <Button variant="primary">Back</Button>
+                <Button variant='outline-secondary'>Back</Button>
               </Link>
-              <Button onClick={() => this.showMovies()}>Directed Movies</Button>
+              <Button variant='outline-secondary' onClick={() => this.showMovies()}>Directed Movies</Button>
             </Card.Body>
           </Card>
         </CardGroup>
+        <br></br>
         {showMovies ?
-          <Card>
-            <Card.Body>
-              <Card.Title>Directed Movies</Card.Title>
-            </Card.Body>
-          </Card>
+          <Row id="directorMoviesRow">
+            {directormovies.map(movie => (
+              <Col md={4} className="cardContainer">
+                <MovieCard key={movie._id} movie={movie} />
+              </Col>
+            ))}
+          </Row>
+
           : <div></div>}
-        {showMovies ?
+      </>
+    )
+  }
+}
+
+/*
           <Row>
             {
-
               directormovies.map(movie => (
-                <Col md={4}>
+                <Col md={4} className="cardContainer">
                   <MovieCard movie={movie} />
                 </Col>
               ))
 
             }
           </Row>
-          : <div></div>}
-      </>
-    )
-  }
-}
+*/
