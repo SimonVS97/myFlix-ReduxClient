@@ -1,0 +1,68 @@
+.buttonAddToFav, .buttonBack {
+  width: 100%;
+  max-width: 400px;
+}
+
+.movie-img {
+  max-height: auto;
+  max-width: 400px;
+}
+
+.imgWrapper {
+  justify-content: center;
+  display: flex;
+}
+
+.cardTitle {
+  text-align: center;
+  margin: auto;
+}
+
+.cardDes, .directorDes, .genreDes {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.input--error {
+  color: red;
+}
+
+#formUsername {
+  margin-bottom: 5%;
+}
+
+.input--error {
+  color: red;
+}
+
+.navbar {
+  border-radius: 5px;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+}
+
+.brand {
+  padding-left: 20px;
+}
+
+#movie-card {
+  height: 100%;
+}
+
+.button {
+  width: 100%;
+}
+
+.cardContainer {
+  margin-bottom: 1.5rem;
+}
+
+.movieCardContainer {
+  margin-bottom: 15px;
+}
+
+html, .app-container {
+  background: linear-gradient(#832198, #00fffb) fixed;
+}
+
+/*# sourceMappingURL=index.5f1df611.css.map */

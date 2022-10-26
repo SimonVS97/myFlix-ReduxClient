@@ -3,7 +3,6 @@ import axios from 'axios';
 
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import LoginView from '../login-view/LoginView';
 import { RegisterView } from '../register-view/register-view.jsx';
@@ -120,7 +119,7 @@ class MainView extends React.Component {
 
           <Route path="/directors/:name" render={({ match, history }) => {
             if (movies.length === 0) return <div className="main-view" />;
-            return <Col >
+            return <Col md={8}>
               <DirectorView
                 movies={movies}
                 director={movies.find(m => m.Director.Name === match.params.name).Director}
