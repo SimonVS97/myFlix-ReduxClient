@@ -35,7 +35,7 @@ export class GenreView extends React.Component {
     const showMovies = this.state.showMovies;
 
     return (
-      <Container>
+      <>
         <CardGroup>
           <Card className="bg-dark text-white vh-500">
             <Card.Body>
@@ -44,22 +44,11 @@ export class GenreView extends React.Component {
               <Link to={`/`}>
                 <Button variant="secondary">Back</Button>
               </Link>
-              <Button variant="secondary" onClick={() => this.showMovies()}>Genre Movies</Button>
+              <Button variant="secondary" onClick={() => this.showMovies()}>Some movies of this genre</Button>
             </Card.Body>
           </Card>
         </CardGroup>
-        {showMovies ?
-          <Row>
-            <Col>
-              <Card>
-                <Card.Body>
-                  <Card.Title>Some movies of this genre
-                  </Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-          : <div></div>}
+        <br></br>
         {showMovies ?
           <Row>
             {genremovies.map(movie => (
@@ -69,7 +58,7 @@ export class GenreView extends React.Component {
             ))}
           </Row>
           : <div></div>}
-      </Container>
+      </>
     )
   }
 }

@@ -59,7 +59,7 @@ export class DirectorView extends React.Component {
         </CardGroup>
         <br></br>
         {showMovies ?
-          <Row id="directorMoviesRow">
+          <Row >
             {directormovies.map(movie => (
               <Col md={4} className="cardContainer">
                 <MovieCard key={movie._id} movie={movie} />

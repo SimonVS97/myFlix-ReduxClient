@@ -158,8 +158,6 @@ class ProfileView extends React.Component {
     this.setFavMovies(favMoviesArr);
   }
 
-
-
   // method that sends delete request to delete movie from favorites
   deleteFavMovie(user, movieID, token) {
     axios.delete(`https://movie-app-svs.herokuapp.com/users/${user}/movies/${movieID}`,
@@ -186,9 +184,6 @@ class ProfileView extends React.Component {
     })
   }
 
-
-
-
   render() {
     const user = this.props.user;
     const token = localStorage.getItem('token');
@@ -196,92 +191,74 @@ class ProfileView extends React.Component {
     const favMovies = this.state.favMovies;
     const showDeleteToast = this.state.showDeleteToast;
 
-    console.log(showDeleteToast);
-
-
-
     return (
-      <Container>
-        <Row>
-          <Col>
-            {profile ? (
-              <CardGroup>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>Profile information</Card.Title>
-                    <Card.Text>Username: {profile.Username}</Card.Text>
-                    <Card.Text>Email: {profile.Email}</Card.Text>
-                    <Card.Text>Date of Birth: {profile.Birthday.split("T")[0]}</Card.Text>
-                  </Card.Body>
-                </Card>
-              </CardGroup>
-            ) : (
-              <div></div>
-            )}
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <CardGroup>
-              <Card>
-                <Card.Body>
-                  <Form>
-                    <Card.Title>Update your profile information</Card.Title>
-                    <Form.Group controlId="formUsername">
-                      <Form.Label>Username:</Form.Label>
-                      <Form.Control type="text" onChange={e => this.setUsername(e.target.value)}></Form.Control>
-                    </Form.Group>
-                    <Form.Group controlId="formPassword">
-                      <Form.Label>Password:</Form.Label>
-                      <Form.Control type="password" onChange={e => this.setPassword(e.target.value)}></Form.Control>
-                    </Form.Group>
-                    <Form.Group controlId="formEmail">
-                      <Form.Label>Email:</Form.Label>
-                      <Form.Control type="email" onChange={e => this.setEmail(e.target.value)}></Form.Control>
-                    </Form.Group>
-                    <Form.Group controlId="formBirthday">
-                      <Form.Label>Birthday:</Form.Label>
-                      <Form.Control type="date" onChange={e => this.setBirthday(e.target.value)}></Form.Control>
-                    </Form.Group>
-                    <br></br>
-                    <Button variant="primary" type="submit" onClick={() => this.changeUserInfo(user, token)}>Submit</Button>
-                    <Button type="submit" variant="primary" onClick={() => this.deleteUser(user, token)}>Deregister</Button>
-                    <Button onClick={() => this.getUserFavMovies()}>FavMovies</Button>
-                    <Link to={`/`}>
-                      <Button variant="primary">Back</Button>
-                    </Link>
-                  </Form>
-                </Card.Body>
-              </Card>
-            </CardGroup>
-          </Col>
-        </Row>
-        <Row>
-          {favMovies !== null &&
-            favMovies.map(m => (
-              <Col md={4}>
-                <MovieCard
-                  favMovies={favMovies}
-                  movie={m}
-                  token={token}
-                  user={user}
-                  key={m._id}
-                  deleteFavMovie={(user, movieID, token) => this.deleteFavMovie(user, movieID, token)}>
-                </MovieCard>
-              </Col>
-            ))
-          }
-        </Row>
-        <Row>
-          <Col md={4}>
-            <ToastContainer className="fixed-top top-0 start-50">
-              <Toast show={showDeleteToast} bg={'success'}>
-                <Toast.Body>You deleted this movie from your list of favorites</Toast.Body>
-              </Toast>
-            </ToastContainer>
-          </Col>
-        </Row>
-      </Container>
+      <>
+        {profile ? (
+          <CardGroup>
+            <Card>
+              <Card.Body>
+                <Card.Title>Profile information</Card.Title>
+                <Card.Text>Username: {profile.Username}</Card.Text>
+                <Card.Text>Email: {profile.Email}</Card.Text>
+                <Card.Text>Date of Birth: {profile.Birthday.split("T")[0]}</Card.Text>
+              </Card.Body>
+            </Card>
+          </CardGroup>
+        ) : (
+          <div></div>
+        )}
+        <CardGroup>
+          <Card>
+            <Card.Body>
+              <Form>
+                <Card.Title>Update your profile information</Card.Title>
+                <Form.Group controlId="formUsername">
+                  <Form.Label>Username:</Form.Label>
+                  <Form.Control type="text" onChange={e => this.setUsername(e.target.value)}></Form.Control>
+                </Form.Group>
+                <Form.Group controlId="formPassword">
+                  <Form.Label>Password:</Form.Label>
+                  <Form.Control type="password" onChange={e => this.setPassword(e.target.value)}></Form.Control>
+                </Form.Group>
+                <Form.Group controlId="formEmail">
+                  <Form.Label>Email:</Form.Label>
+                  <Form.Control type="email" onChange={e => this.setEmail(e.target.value)}></Form.Control>
+                </Form.Group>
+                <Form.Group controlId="formBirthday">
+                  <Form.Label>Birthday:</Form.Label>
+                  <Form.Control type="date" onChange={e => this.setBirthday(e.target.value)}></Form.Control>
+                </Form.Group>
+                <br></br>
+                <Button variant="primary" type="submit" onClick={() => this.changeUserInfo(user, token)}>Submit</Button>
+                <Button type="submit" variant="primary" onClick={() => this.deleteUser(user, token)}>Deregister</Button>
+                <Button onClick={() => this.getUserFavMovies()}>FavMovies</Button>
+                <Link to={`/`}>
+                  <Button variant="primary">Back</Button>
+                </Link>
+              </Form>
+            </Card.Body>
+          </Card>
+        </CardGroup>
+        {favMovies !== null &&
+          favMovies.map(m => (
+            <Col md={4}>
+              <MovieCard
+                favMovies={favMovies}
+                movie={m}
+                token={token}
+                user={user}
+                key={m._id}
+                deleteFavMovie={(user, movieID, token) => this.deleteFavMovie(user, movieID, token)}>
+              </MovieCard>
+            </Col>
+          ))
+        }
+        <ToastContainer className="fixed-top top-0 start-50">
+          <Toast show={showDeleteToast} bg={'success'}>
+            <Toast.Body>You deleted this movie from your list of favorites</Toast.Body>
+          </Toast>
+        </ToastContainer>
+      </>
     )
   }
 }
