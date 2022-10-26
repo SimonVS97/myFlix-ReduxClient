@@ -90,11 +90,11 @@ function LoginView(props) {
                 {passwordErr && <p className="input--error">{passwordErr}</p>}
               </Form.Group>
               <br></br>
-              <Button className="mb-3 btn-lg px-5" variant="outline-primary" type="submit" onClick={handleSubmit}>Submit</Button>
+              <Button className="mb-3 btn-lg px-5" variant="outline-secondary" type="submit" onClick={handleSubmit}>Submit</Button>
               <br></br>
               <Card.Text>Don't have an account?</Card.Text>
               <Link to={`/register`}>
-                <Button className="mb-3 btn-lg px-5" variant='outline-primary'>Register</Button>
+                <Button className="mb-3 btn-lg px-5" variant='outline-secondary'>Register</Button>
               </Link>
             </Form>
           </Card.Body>

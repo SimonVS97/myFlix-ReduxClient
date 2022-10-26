@@ -39981,7 +39981,7 @@ function LoginView(props) {
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                                 className: "mb-3 btn-lg px-5",
-                                variant: "outline-primary",
+                                variant: "outline-secondary",
                                 type: "submit",
                                 onClick: handleSubmit,
                                 children: "Submit"
@@ -40006,7 +40006,7 @@ function LoginView(props) {
                                 to: `/register`,
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
                                     className: "mb-3 btn-lg px-5",
-                                    variant: "outline-primary",
+                                    variant: "outline-secondary",
                                     children: "Register"
                                 }, void 0, false, {
                                     fileName: "src/components/login-view/LoginView.jsx",
@@ -41797,7 +41797,7 @@ function RegisterView(props) {
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                                 className: "mb-3 btn-lg px-5",
                                 type: "submit",
-                                variant: "outline-primary",
+                                variant: "outline-secondary",
                                 onClick: handleSubmit,
                                 children: "Submit"
                             }, void 0, false, {
@@ -41814,7 +41814,7 @@ function RegisterView(props) {
                                 to: `/`,
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                                     className: "mb-3 btn-lg px-5",
-                                    variant: "outline-primary",
+                                    variant: "outline-secondary",
                                     children: "Log-In"
                                 }, void 0, false, {
                                     fileName: "src/components/register-view/register-view.jsx",
@@ -42180,9 +42180,9 @@ class MovieCard extends (0, _reactDefault.default).Component {
         const deleteFavMovie = this.props.deleteFavMovie;
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.CardGroup), {
             id: "movie-card",
-            className: "cardGroup",
+            className: "cardGroup mx-auto ",
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
-                className: "bg-dark text-white vh-500",
+                className: "bg-dark text-white vh-500 ",
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Img, {
@@ -42316,6 +42316,8 @@ function MoviesList(props) {
                 columnNumber: 5
             }, this),
             filteredMovies.map((m)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
+                    sm: 4,
+                    xs: 6,
                     md: 3,
                     className: "cardContainer",
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {

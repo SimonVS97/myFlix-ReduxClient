@@ -19,8 +19,8 @@ export class MovieCard extends React.Component {
     const deleteFavMovie = this.props.deleteFavMovie;
 
     return (
-      <CardGroup id="movie-card" className='cardGroup'>
-        <Card className="bg-dark text-white vh-500">
+      <CardGroup id="movie-card" className='cardGroup mx-auto '>
+        <Card className="bg-dark text-white vh-500 ">
           <Card.Body >
             <Card.Img variant="top" src={movie.ImagePath} style={{ height: '70%' }} />
             <Card.Title>{movie.Title}</Card.Title>

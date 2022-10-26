@@ -47,13 +47,20 @@
 
 #movie-card {
   height: 100%;
+  max-width: 250px;
 }
 
 .button {
   width: 50%;
 }
 
+.cardGroup {
+  text-align: center;
+}
+
 .cardContainer {
+  text-align: center;
+  align-items: center;
   margin-bottom: 1.5rem;
 }
 

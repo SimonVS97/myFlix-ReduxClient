@@ -124,10 +124,10 @@ export function RegisterView(props) {
                 </Form.Control>
               </Form.Group>
               <br></br>
-              <Button className="mb-3 btn-lg px-5" type="submit" variant="outline-primary" onClick={handleSubmit}>Submit</Button>
+              <Button className="mb-3 btn-lg px-5" type="submit" variant="outline-secondary" onClick={handleSubmit}>Submit</Button>
               <br></br>
               <Link to={`/`}>
-                <Button className="mb-3 btn-lg px-5" variant='outline-primary'>Log-In</Button>
+                <Button className="mb-3 btn-lg px-5" variant='outline-secondary'>Log-In</Button>
               </Link>
             </Form>
           </Card.Body>
