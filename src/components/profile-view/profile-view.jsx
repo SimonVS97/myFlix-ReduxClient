@@ -27,7 +27,8 @@ class ProfileView extends React.Component {
       password: null,
       email: null,
       birthday: null,
-      showDeleteToast: false
+      showDeleteToast: false,
+      showFavMovies: false,
     }
   }
 
@@ -148,15 +149,25 @@ class ProfileView extends React.Component {
 
   // Filter the favorite movies of the user 
   getUserFavMovies() {
-    const favMovies = this.state.profile.FavoriteMovies;
-    const movies = this.props.movies;
-    let favMoviesArr = this.state.favMovies;
-
-    favMoviesArr = favMovies.map(movieId => {
-      return movies.find(m => m._id == movieId)
-    })
-    this.setFavMovies(favMoviesArr);
+    if (this.state.showFavMovies == false) {
+      const favMovies = this.state.profile.FavoriteMovies;
+      const movies = this.props.movies;
+      let favMoviesArr = this.state.favMovies;
+      favMoviesArr = favMovies.map(movieId => {
+        return movies.find(m => m._id == movieId)
+      })
+      this.setFavMovies(favMoviesArr);
+      this.setState({
+        showFavMovies: true
+      })
+    }
+    else {
+      this.setState({
+        showFavMovies: false
+      })
+    }
   }
+
 
   // method that sends delete request to delete movie from favorites
   deleteFavMovie(user, movieID, token) {
@@ -187,7 +198,8 @@ class ProfileView extends React.Component {
     const token = localStorage.getItem('token');
     const profile = this.state.profile;
     const favMovies = this.state.favMovies;
-    const showDeleteToast = this.state.showDeleteToast;
+    let showDeleteToast = this.state.showDeleteToast;
+    let showFavMovies = this.state.showFavMovies;
 
     return (
       <>
@@ -242,8 +254,8 @@ class ProfileView extends React.Component {
                 </Card.Body>
               </Card>
             </CardGroup>
-          </Col >
-          {favMovies !== null &&
+          </Col>
+          {(showFavMovies && favMovies !== null) ?
             favMovies.map(m => (
               <Col md={4}>
                 <MovieCard
@@ -256,6 +268,7 @@ class ProfileView extends React.Component {
                 </MovieCard>
               </Col>
             ))
+            : <div></div>
           }
           <ToastContainer className="fixed-top top-0 start-50">
             <Toast show={showDeleteToast} bg={'success'}>
