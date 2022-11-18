@@ -7,10 +7,10 @@ import './register-view.scss';
 
 
 export function RegisterView(props) {
-  [username, setUsername] = useState('');
-  [password, setPassword] = useState('');
-  [email, setEmail] = useState('');
-  [birthday, setBirthDay] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [birthday, setBirthDay] = useState('');
 
   const [usernameErr, setUsernameErr] = useState('');
   const [passwordErr, setPasswordErr] = useState('');
