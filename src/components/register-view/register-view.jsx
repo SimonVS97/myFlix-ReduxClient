@@ -23,7 +23,7 @@ export function RegisterView(props) {
       setUsernameErr('Username Required');
       isRegis = false;
     } else if (username.length < 2) {
-      setUsernameErr('Username must be 2 characters long');
+      setUsernameErr('Username must be at least 5 characters long');
       isRegis = false;
     }
     if (!password) {
