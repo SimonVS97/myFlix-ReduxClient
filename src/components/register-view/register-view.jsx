@@ -83,7 +83,7 @@ export function RegisterView(props) {
                   type="text"
                   value={username}
                   onChange={e => setUsername(e.target.value)}
-                  placeholder="Username must at least be 2 characters long"
+                  placeholder="Username must at least be 5 characters long"
                   required>
                 </Form.Control>
                 <p className="input--error">{usernameErr && usernameErr}</p>
