@@ -37,7 +37,7 @@ function Menubar(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             {isAuth() && (
-              <Link to={`/users/` + { user }}>{user}</Link>
+              <Link to={`/users/` + user}>{user}</Link>
               /*<Nav.Link href={"/users/" + user}>{user}</Nav.Link>*/
             )}
             {isAuth() && (
