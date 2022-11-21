@@ -41594,10 +41594,10 @@ var _registerViewScss = require("./register-view.scss");
 var _s = $RefreshSig$();
 function RegisterView(props) {
     _s();
-    [username, setUsername] = (0, _react.useState)("");
-    [password, setPassword] = (0, _react.useState)("");
-    [email, setEmail] = (0, _react.useState)("");
-    [birthday, setBirthDay] = (0, _react.useState)("");
+    const [username, setUsername] = (0, _react.useState)("");
+    const [password, setPassword] = (0, _react.useState)("");
+    const [email, setEmail] = (0, _react.useState)("");
+    const [birthday, setBirthDay] = (0, _react.useState)("");
     const [usernameErr, setUsernameErr] = (0, _react.useState)("");
     const [passwordErr, setPasswordErr] = (0, _react.useState)("");
     const [emailErr, setEmailErr] = (0, _react.useState)("");
@@ -41608,7 +41608,7 @@ function RegisterView(props) {
             setUsernameErr("Username Required");
             isRegis = false;
         } else if (username.length < 2) {
-            setUsernameErr("Username must be 2 characters long");
+            setUsernameErr("Username must be at least 5 characters long");
             isRegis = false;
         }
         if (!password) {
@@ -41675,7 +41675,7 @@ function RegisterView(props) {
                                         type: "text",
                                         value: username,
                                         onChange: (e)=>setUsername(e.target.value),
-                                        placeholder: "Username must at least be 2 characters long",
+                                        placeholder: "Username must at least be 5 characters long",
                                         required: true
                                     }, void 0, false, {
                                         fileName: "src/components/register-view/register-view.jsx",
@@ -41853,7 +41853,7 @@ function RegisterView(props) {
         columnNumber: 5
     }, this);
 }
-_s(RegisterView, "CKq2g8cabYhBc/6K+FLXoiZUUYc=");
+_s(RegisterView, "CbcDB4GuAMjhcI5ugEPUrEUrce4=");
 _c = RegisterView;
 var _c;
 $RefreshReg$(_c, "RegisterView");
