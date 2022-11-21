@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
 
 import './navbar.scss';
 
@@ -27,7 +28,7 @@ function Menubar(props) {
       return false;
     }
   };
-
+  /*              <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>*/
   return (
     <Col xs={12}>
       <Navbar className="navbar" bg="dark" variant="dark" sticky='top'>
@@ -35,7 +36,7 @@ function Menubar(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             {isAuth() && (
-              <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>
+              <Link to={`/users/` + { user }}>{user}</Link>
             )}
             {isAuth() && (
               <Button variant='dark' onClick={() => {

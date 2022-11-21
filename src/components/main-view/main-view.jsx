@@ -146,7 +146,6 @@ class MainView extends React.Component {
               <ProfileView
                 onBackClick={() => history.goBack()} />
             </Col>
-
           }} />
         </Row>
       </Router>
