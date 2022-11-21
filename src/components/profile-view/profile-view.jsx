@@ -137,7 +137,6 @@ class ProfileView extends React.Component {
 
   // Get info on the user, user is passed as an parameter into method
   getUserInfo(user, token) {
-    console.log(user);
     axios.get(`https://movie-app-svs.herokuapp.com/users/${user}`, {
       headers: { Authorization: `Bearer ${token}` }
     }).then(response => {

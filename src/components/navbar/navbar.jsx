@@ -18,6 +18,7 @@ function Menubar(props) {
   }
 
   const isAuth = () => {
+    console.log(typeof user);
     // test if the script is being run in a web-browser or not
     if (typeof window == "undefined") {
       return false;
@@ -36,7 +37,8 @@ function Menubar(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             {isAuth() && (
-              <Link to={`/users/` + { user }}>{user}</Link>
+              /*<Link to={`/users/` + { user }}>{user}</Link>*/
+              <Nav.Link href={"/users/" + user}>{user}</Nav.Link>
             )}
             {isAuth() && (
               <Button variant='dark' onClick={() => {
