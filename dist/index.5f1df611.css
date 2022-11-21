@@ -45,6 +45,13 @@
   padding-left: 20px;
 }
 
+#altLink {
+  color: #fff;
+  border: 1px solid #212529;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
 #movie-card {
   height: 100%;
   max-width: 250px;
