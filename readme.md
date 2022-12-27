@@ -41,3 +41,9 @@ https://movie-app-svs.herokuapp.com/
 
 ```
 npm run start
+```
+
+## Author
+
+Simon Victor Schubert
+Check out my Linked [LinkedIn] (https://www.linkedin.com/in/simon-schubert/)
