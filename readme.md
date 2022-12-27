@@ -46,4 +46,5 @@ npm run start
 ## Author
 
 Simon Victor Schubert
-[Check out my Linked](https://www.linkedin.com/in/simon-schubert/)
+
+[Check out my LinkedIn](https://www.linkedin.com/in/simon-schubert/)
