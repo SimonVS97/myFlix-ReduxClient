@@ -4,6 +4,8 @@
 This is an app that displays information about movies, directors and genres. User can create an account and create list of favorites movies. Users can also update their profile information and  deregister from the app.
 The app is structured according to the flux pattern with the help of React-Redux.
 
+![Log-In View](https://user-images.githubusercontent.com/104713327/209662746-815bbf7e-8fac-4b52-8b3a-902a81fb230a.png)
+
 ## How to get the project running
 You can access the app with this URL: https://bejewelled-kleicha-5df9db.netlify.app
 
