@@ -7,7 +7,7 @@ The app is structured according to the flux pattern with the help of React-Redux
 ![Log-In View](https://user-images.githubusercontent.com/104713327/209662746-815bbf7e-8fac-4b52-8b3a-902a81fb230a.png)
 ![Main View](https://user-images.githubusercontent.com/104713327/209662924-cf6e2137-55eb-41bd-bb99-437bddf6b869.png)
 
-## How to get the project running
+## How to access the project
 You can access the app with this URL: https://bejewelled-kleicha-5df9db.netlify.app
 
 ## Built with
@@ -31,3 +31,12 @@ You can access the app with this URL: https://bejewelled-kleicha-5df9db.netlify.
 
 ## API used in this project
 https://movie-app-svs.herokuapp.com/
+
+## How to get the project running
+
+1. Clone the project
+2. Install all dependencies mentioned in package.json
+3. cd to the project directory
+4. Run it by:
+npm run start
+```
