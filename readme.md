@@ -10,10 +10,13 @@ The app is structured according to the flux pattern with the help of React-Redux
 ## How to get the project running
 You can access the app with this URL: https://bejewelled-kleicha-5df9db.netlify.app
 
+## Built with
+- HTML
+- CSS/SCSS
+- JS
+- React
+
 ## Project dependencies
-- HTML 5
-- CSS3
-- JS v1.7
 - axios: v0.27.2,
 - parcel: v2.0.0-rc.0,
 - prop-types: v15.8.1,
