@@ -15,6 +15,7 @@ You can access the app with this URL: https://bejewelled-kleicha-5df9db.netlify.
 - CSS/SCSS
 - JS
 - React
+- Parcel
 
 ## Project dependencies
 - axios: v0.27.2,
