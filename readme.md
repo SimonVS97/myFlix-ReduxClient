@@ -38,5 +38,6 @@ https://movie-app-svs.herokuapp.com/
 2. Install all dependencies mentioned in package.json
 3. cd to the project directory
 4. Run it by:
-npm run start
+
 ```
+npm run start
