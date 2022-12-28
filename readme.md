@@ -5,7 +5,7 @@ This is an app that displays information about movies, directors and genres. Use
 The app is structured according to the flux pattern with the help of React-Redux.
 
 ## How to get the project running
-You can access the app with this URL: https://bejewelled-kleicha-5df9db.netlify.app
+You can access the app with this URL: https://myflixsvs.netlify.app/
 
 ## Project dependencies
 - HTML 5
