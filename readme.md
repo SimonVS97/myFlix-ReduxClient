@@ -4,13 +4,20 @@
 This is an app that displays information about movies, directors and genres. User can create an account and create list of favorites movies. Users can also update their profile information and  deregister from the app.
 The app is structured according to the flux pattern with the help of React-Redux.
 
-## How to get the project running
+![Log-In View](https://user-images.githubusercontent.com/104713327/209662746-815bbf7e-8fac-4b52-8b3a-902a81fb230a.png)
+![Main View](https://user-images.githubusercontent.com/104713327/209662924-cf6e2137-55eb-41bd-bb99-437bddf6b869.png)
+
+## How to access the project
 You can access the app with this URL: https://myflixsvs.netlify.app/
 
+## Built with
+- HTML
+- CSS/SCSS
+- JS
+- React
+- Parcel
+
 ## Project dependencies
-- HTML 5
-- CSS3
-- JS v1.7
 - axios: v0.27.2,
 - parcel: v2.0.0-rc.0,
 - prop-types: v15.8.1,
@@ -24,3 +31,20 @@ You can access the app with this URL: https://myflixsvs.netlify.app/
 
 ## API used in this project
 https://movie-app-svs.herokuapp.com/
+
+## How to get the project running
+
+1. Clone the project
+2. Install all dependencies mentioned in package.json
+3. cd to the project directory
+4. Run it by:
+
+```
+npm run start
+```
+
+## Author
+
+Simon Victor Schubert
+
+[Check out my LinkedIn](https://www.linkedin.com/in/simon-schubert/)
