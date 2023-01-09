@@ -4,13 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
-import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import { Link, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './LoginView.scss';
+import Alert from 'react-bootstrap/Alert';
 
+import './LoginView.scss';
 
 import { setUser } from '../../actions/actions';
 
@@ -23,8 +22,7 @@ function LoginView(props) {
   // Declare hook for each input
   const [usernameErr, setUsernameErr] = useState('');
   const [passwordErr, setPasswordErr] = useState('');
-
-  const onRegisterClick = props.onRegisterClick;
+  const [showAlert, setShowAlert] = useState(true);
 
   // function to validate user input
   const validate = () => {
@@ -74,6 +72,8 @@ function LoginView(props) {
   };
 
   return (
+
+
     <Col xs={5}>
       <CardGroup>
         <Card className='text-center bg-dark text-white'>
@@ -100,7 +100,15 @@ function LoginView(props) {
           </Card.Body>
         </Card>
       </CardGroup>
+      {showAlert &&
+        <Alert className="logInAlert" variant="secondary" dismissible onClose={() => setShowAlert(false)}>
+          <Alert.Heading>Hey there</Alert.Heading>
+          <p>If you just want to try the app, you can use the following log-in info:</p>
+          <p>Username: Alois</p>
+          <p>Password: 1234567</p>
+        </Alert>}
     </Col>
+
 
 
   );

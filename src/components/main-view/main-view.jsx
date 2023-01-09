@@ -29,7 +29,6 @@ class MainView extends React.Component {
     }
   }
 
-
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     console.log(accessToken);
@@ -72,7 +71,6 @@ class MainView extends React.Component {
         console.log(error);
       });
   }
-
 
   render() {
     let movies = this.props.movies;

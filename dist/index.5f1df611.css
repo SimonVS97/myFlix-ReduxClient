@@ -31,6 +31,13 @@
   margin-bottom: 5%;
 }
 
+.logInAlert {
+  width: 60%;
+  position: relative;
+  bottom: 50%;
+  right: 72%;
+}
+
 .input--error {
   color: red;
 }
